@@ -7,20 +7,14 @@ import java.util.TreeSet;
 /**
  * Created by Денис on 25.04.2017.
  */
-public class RemoveListener implements ActionListener{
-    JTextField object;
-    TreeSet<Human> collection;
-    LabTable colTable;
+public class RemoveListener extends LabListener{
     RemoveListener(JTextField field, TreeSet<Human> col,LabTable colTable){
-        super();
-        collection=col;
-        object=field;
-        this.colTable=colTable;
+        super(field,col,colTable);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        Iterator iter = collection.iterator();
-        Human consoleArgument = ConsoleApp.ParseJSON(object.getText());
+        Iterator iter = getCollection().iterator();
+        Human consoleArgument = ConsoleApp.ParseJSON(getObject().getText());
         boolean removed=false;
         while (iter.hasNext()) {
             Human currentElement = (Human) iter.next();
@@ -28,7 +22,7 @@ public class RemoveListener implements ActionListener{
                 iter.remove();
                 System.out.println("Элемент " + consoleArgument.toString() + " успешно удалён из коллекции");
                 removed = true;
-                colTable.fireTableDataChanged();
+                getColTable().fireTableDataChanged();
                 break;
             }
         }if(!removed){System.out.println("Данного элемента нет в коллекции");}
