@@ -6,6 +6,15 @@ public class Human implements Comparable {
     private String name;
     private int age;
     private String location;
+    private Boolean IsMale;
+
+    public Boolean getGender() {
+        return IsMale;
+    }
+
+    public void setGender(Boolean male) {
+        IsMale = male;
+    }
 
     Human(){}
     Human(String n,int a){

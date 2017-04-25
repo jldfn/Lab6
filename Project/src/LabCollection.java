@@ -7,15 +7,15 @@ import java.util.TreeSet;
 public class LabCollection {
     private String name;
 
-    public TreeSet<Comparable> getUselessData() {
+    public TreeSet<Human> getUselessData() {
         return UselessData;
     }
 
-    public void setUselessData(TreeSet<Comparable> uselessData) {
+    public void setUselessData(TreeSet<Human> uselessData) {
         UselessData = uselessData;
     }
-    public void addUselessData(TreeSet<Comparable> uselessData){UselessData.addAll(uselessData);}
-    private TreeSet<Comparable> UselessData;
+    public void addUselessData(TreeSet<Human> uselessData){UselessData.addAll(uselessData);}
+    private TreeSet<Human> UselessData;
 
     public String getName() {
         return name;
@@ -27,10 +27,10 @@ public class LabCollection {
 
     LabCollection(){
         this.name="";
-        UselessData=new TreeSet<Comparable>();
+        UselessData=new TreeSet<Human>();
     }
     LabCollection(String name){
         this.name=name;
-        UselessData=new TreeSet<Comparable>();
+        UselessData=new TreeSet<Human>();
     }
 }
