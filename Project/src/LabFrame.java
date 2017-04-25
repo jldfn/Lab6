@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.TreeSet;
 
 /**
@@ -16,11 +17,15 @@ public class LabFrame extends JFrame {
         this.table = table;
     }
 
-    LabFrame(String title, TreeSet<Human> humanTreeSet){
+    LabFrame(String title, LabCollection labCollection){
         super(title);
+        setLayout(new FlowLayout());
+        JButton saveButton=new JButton();
+        saveButton.addActionListener(new SaveListener(labCollection));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        table=new LabTable(humanTreeSet);
-        add(new JTable(table));
+        table=new LabTable(labCollection.getUselessData());
+        add(saveButton);
+        add(new JScrollPane(new JTable(table)));
         pack();
 
     }

@@ -16,7 +16,7 @@ public class ConsoleApp {
 
     public static void main(String[] args) {
         LabCollection ExpCol=ImportFrom(defaultPath);
-        LabFrame frame=new LabFrame("Test",ExpCol.getUselessData());
+        LabFrame frame=new LabFrame("Test",ExpCol);
         frame.setVisible(true);
         Scanner consoleReader=new Scanner(System.in);
         String currentString=consoleReader.nextLine();

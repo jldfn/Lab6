@@ -14,13 +14,20 @@ public class LabTable extends AbstractTableModel {
 
     @Override
     public String getColumnName(int column) {
-        switch (column){
-            case 0:return("Name");
-            case 1:return("Age");
-            case 2:return("Location");
-          //  case 3:return("Gender");
-            default:return"Other";
+        String result="";
+        switch (column) {
+            case 0:
+                result = "Name";
+                break;
+            case 1:
+                result = "Age";
+                break;
+            case 2:
+                result = "Location";
+                break;
         }
+          //  case 3:return("Gender");
+            return result;
     }
 
     @Override
