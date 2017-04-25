@@ -34,5 +34,6 @@ public class SaveListener implements ActionListener{
             writer.close();}
         catch(Exception f){System.out.println(f.getCause()+" "+f.getMessage());
         }
+        System.out.println("Коллекция сохранена в файл: "+ ConsoleApp.defaultPath);
     }
 }

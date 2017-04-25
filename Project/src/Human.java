@@ -59,14 +59,8 @@ public class Human implements Comparable {
     public void setAge(int age) {this.age = age;}
 
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Human)) return false;
-
-        Human human = (Human) o;
-
-        if (!getName().equals(human.getName())) return false;
-        return getLocation().equals(human.getLocation());
-
+        Human k=(Human) o;
+        return (getLocation().equals(k.getLocation()) && getName().equals(k.getName()) && getAge()==k.getAge());
     }
 
     public int hashCode() {

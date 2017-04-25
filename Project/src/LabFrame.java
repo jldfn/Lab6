@@ -20,10 +20,15 @@ public class LabFrame extends JFrame {
     LabFrame(String title, LabCollection labCollection){
         super(title);
         setLayout(new FlowLayout());
-        JButton saveButton=new JButton();
+        table=new LabTable(labCollection.getUselessData());
+        RemoveButton rButton=new RemoveButton("Remove",labCollection.getUselessData(),table);
+        JButton saveButton=new JButton("Save");
         saveButton.addActionListener(new SaveListener(labCollection));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        table=new LabTable(labCollection.getUselessData());
+        JPanel panel=new JPanel();
+        panel.add(rButton.rmTextField);
+        panel.add(rButton);
+        add(panel);
         add(saveButton);
         add(new JScrollPane(new JTable(table)));
         pack();

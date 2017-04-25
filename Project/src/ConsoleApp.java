@@ -36,38 +36,24 @@ public class ConsoleApp {
                     ExpCol.addUselessData(ImportFrom(m.group().substring(1,m.group().length()-1)).getUselessData()); break;}
                 case "remove": {
                     Iterator iter = ExpCol.getUselessData().iterator();
-                    Comparable consoleArgument = ParseJSON(currentString.substring(7));
+                    Human consoleArgument = ParseJSON(currentString.substring(7));
+                    boolean removed=false;
                     while (iter.hasNext()) {
-                        Comparable currentElement = (Comparable) iter.next();
-                        if (!currentElement.toString().contains("Контейнер")) {
-                            if (currentElement.toString().matches(consoleArgument.toString())) {
-                                iter.remove();
-                                System.out.println("Элемент " + consoleArgument.toString() + " успешно удалён из коллекции");
-                                break;
-                            } else ;
-                        } else {
-                            if (currentElement.toString().matches(consoleArgument.toString())) {
-                                Container consoleCon = (Container) consoleArgument;
-                                Container currentCon = (Container) currentElement;
-                                int identity = 0;
-                                for (JustItem conItem : currentCon.getContents()) {
-                                    for (JustItem someItem : consoleCon.getContents()) {
-                                        if (conItem.toString().matches(someItem.toString())) identity++;
-                                    }
-                                }
-                                if (identity == consoleCon.getSize() - consoleCon.getSpace()) {
-                                    iter.remove();
-                                    System.out.println("Элемент успешно удалён из коллекции");
-                                }
-                            }
+                        Human currentElement = (Human) iter.next();
+                        if (currentElement.equals(consoleArgument)) {
+                            iter.remove();
+                            System.out.println("Элемент " + consoleArgument.toString() + " успешно удалён из коллекции");
+                            removed = true;
+                            break;
                         }
-                    }
-                }break;
+                    }if(!removed){System.out.println("Данного элемента нет в коллекции");}
+                break;
+                }
                 case "remove_lower": {
                     Iterator iter = ExpCol.getUselessData().iterator();
                     while (iter.hasNext()) {
-                        Comparable consoleArgument = ParseJSON(currentString.substring(13, currentString.length()));
-                        Comparable a = (Comparable) iter.next();
+                        Human consoleArgument = ParseJSON(currentString.substring(13, currentString.length()));
+                        Human a = (Human) iter.next();
                         if (consoleArgument.compareTo(a) > 0) {
                             System.out.println("Элемент " + a.toString() + " был удалён из коллекции");
                             iter.remove();
@@ -86,7 +72,7 @@ public class ConsoleApp {
         SaveCollection(ExpCol);
     }
 
-    public static Comparable ParseJSON(String parseString) {
+    public static Human ParseJSON(String parseString) {
         String[] sepString = parseString.split(" ");
         Scanner itemReader = new Scanner(System.in);
         try{
@@ -122,7 +108,7 @@ public class ConsoleApp {
                     if(!hasAttributes[2])System.out.println("Атрибут location не был задан");}
                 }else{System.out.println("Объекты данного типа не могут быть занесены в коллекцию");}
         }catch(IndexOutOfBoundsException e){System.out.println("Ошибка преобразования объекта");}catch(NumberFormatException l){System.out.println("Ошибка преобразования численного поля");}
-        return 0;
+        return (null);
     }
 
     public static LabCollection ImportFrom(String path){
