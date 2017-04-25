@@ -9,8 +9,8 @@ import java.util.regex.Pattern;
  * Created by Денис on 25.04.2017.
  */
 public class ImportListener extends LabListener {
-    ImportListener(JTextField field, TreeSet<Human> col, LabTable colTable){
-        super(field,col,colTable);
+    ImportListener(JTextField field, TreeSet<Human> col, LabTable colTable,JTextPane out){
+        super(field,col,colTable,out);
     }
     @Override
     public void actionPerformed(ActionEvent e) {

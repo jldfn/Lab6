@@ -9,17 +9,17 @@ public class LabButton extends JButton{
 
     private JTextField ButtonTextField;
 
-    LabButton(String title, TreeSet<Human> col,LabTable table,String type){
+    LabButton(String title, TreeSet<Human> col,LabTable table,String type,JTextPane out){
         super(title);
         switch (type){
             case "Rm":{ButtonTextField=new JTextField("Введите объект в формате JSON",50);
-                addActionListener(new RemoveListener(ButtonTextField,col,table));
+                addActionListener(new RemoveListener(ButtonTextField,col,table,out));
             }break;
             case "RmL":{ButtonTextField=new JTextField("Введите объект в формате JSON",50);
-                addActionListener(new RemoveLowerListener(ButtonTextField,col,table));
+                addActionListener(new RemoveLowerListener(ButtonTextField,col,table,out));
             }break;
             case "Imp":{ButtonTextField=new JTextField("Введите адрес файла в фигурных скобках",50);
-                addActionListener(new ImportListener(ButtonTextField,col,table));}
+                addActionListener(new ImportListener(ButtonTextField,col,table,out));}
         }
         ButtonPanel=new JPanel();
         ButtonPanel.add(ButtonTextField);

@@ -20,17 +20,21 @@ public class LabFrame extends JFrame {
     LabFrame(String title, LabCollection labCollection){
         super(title);
         setLayout(new FlowLayout());
+        JTextPane OutputPanel=new JTextPane();
         table=new LabTable(labCollection.getUselessData());
-        LabButton rmButton=new LabButton("Remove",labCollection.getUselessData(),table,"Rm");
-        LabButton rmLButton=new LabButton("Remove Lower",labCollection.getUselessData(),table,"RmL");
-        LabButton ImportButton=new LabButton("Import",labCollection.getUselessData(),table,"Imp");
+        LabButton rmButton=new LabButton("Remove",labCollection.getUselessData(),table,"Rm",OutputPanel);
+        LabButton rmLButton=new LabButton("Remove Lower",labCollection.getUselessData(),table,"RmL",OutputPanel);
+        LabButton ImportButton=new LabButton("Import",labCollection.getUselessData(),table,"Imp",OutputPanel);
         JButton saveButton=new JButton("Save");
-        saveButton.addActionListener(new SaveListener(labCollection));
+        saveButton.addActionListener(new SaveListener(labCollection,OutputPanel));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        OutputPanel.setSize(700,300);
+        OutputPanel.setVisible(true);
         add(rmLButton.getButtonPanel());
         add(ImportButton.getButtonPanel());
         add(rmButton.getButtonPanel());
         add(saveButton);
+        add(OutputPanel);
         add(new JScrollPane(new JTable(table)));
         pack();
 

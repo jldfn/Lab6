@@ -24,8 +24,6 @@ public class ConsoleApp {
                         frame.setVisible(true);
                     }
                 });
-        Scanner consoleReader=new Scanner(System.in);
-        String currentString=consoleReader.nextLine();
         Runtime.getRuntime().addShutdownHook(new Thread(){
             public void run() {
                 SaveCollection(ExpCol);

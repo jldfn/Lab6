@@ -10,9 +10,13 @@ import java.util.TreeSet;
  */
 public class SaveListener implements ActionListener{
     LabCollection collection;
-    SaveListener(LabCollection collection){
+    JTextPane OutputPanel;
+
+    SaveListener(LabCollection collection, JTextPane out){
         super();
         this.collection=collection;
+        OutputPanel=out;
+
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -34,6 +38,22 @@ public class SaveListener implements ActionListener{
             writer.close();}
         catch(Exception f){System.out.println(f.getCause()+" "+f.getMessage());
         }
-        System.out.println("Коллекция сохранена в файл: "+ ConsoleApp.defaultPath);
+        getOutputPanel().setText(getOutputPanel().getText()+System.getProperty("line.separator")+"Коллекция сохранена в файл: "+ ConsoleApp.defaultPath);
+    }
+
+    public LabCollection getCollection() {
+        return collection;
+    }
+
+    public void setCollection(LabCollection collection) {
+        this.collection = collection;
+    }
+
+    public JTextPane getOutputPanel() {
+        return OutputPanel;
+    }
+
+    public void setOutputPanel(JTextPane outputPanel) {
+        OutputPanel = outputPanel;
     }
 }
