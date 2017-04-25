@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.text.Document;
+import javax.swing.text.Style;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Iterator;
@@ -11,12 +13,16 @@ public class RemoveListener implements ActionListener{
     JTextField object;
     TreeSet<Human> collection;
     LabTable colTable;
-    RemoveListener(JTextField field, TreeSet<Human> col,LabTable colTable){
+    JTextPane obj;
+    RemoveListener(JTextField field, TreeSet<Human> col,LabTable colTable, JTextPane pole){
         super();
         collection=col;
         object=field;
+        obj=pole;
         this.colTable=colTable;
+
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         Iterator iter = collection.iterator();
@@ -28,9 +34,15 @@ public class RemoveListener implements ActionListener{
                 iter.remove();
                 System.out.println("Элемент " + consoleArgument.toString() + " успешно удалён из коллекции"); //добавить вывод в большое текстовое окно
                 removed = true;
+                String str = "Элемент " + consoleArgument.toString() + " успешно удалён из коллекции";
+                obj.setText(obj.getText()+System.getProperty("line.separator")+str);
                 colTable.fireTableDataChanged();
                 break;
             }
-        }if(!removed){System.out.println("Данного элемента нет в коллекции");}
+        }if(!removed){System.out.println("Данного элемента нет в коллекции");
+        String str = "Данного элемента нет в коллекции";
+        obj.setText(obj.getText()+System.getProperty("line.separator")+str);
+        }
     }
+
 }

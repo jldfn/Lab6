@@ -6,7 +6,7 @@ import java.util.TreeSet;
  * Created by Денис on 24.04.2017.
  */
 public class LabFrame extends JFrame {
-    JPanel panel=new JPanel();
+    //JPanel panel=new JPanel();
     LabTable table;
 
     public LabTable getTable() {
@@ -20,10 +20,10 @@ public class LabFrame extends JFrame {
     LabFrame(String title, LabCollection labCollection){
         super(title);
         setLayout(new FlowLayout());
-        table=new LabTable(labCollection.getUselessData());
-        RemoveButton rButton=new RemoveButton("Remove",labCollection.getUselessData(),table);
-        JButton saveButton=new JButton("Save");
         JTextPane textPane = new JTextPane();
+        table=new LabTable(labCollection.getUselessData());
+        RemoveButton rButton=new RemoveButton("Remove",labCollection.getUselessData(),table, textPane);
+        JButton saveButton=new JButton("Save");
         textPane.setText("Здесь будет вывод ошибок и результатов обработок команд");
         saveButton.addActionListener(new SaveListener(labCollection));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -6,9 +6,9 @@ import java.util.TreeSet;
  */
 public class RemoveButton extends JButton{
     JTextField rmTextField;
-    RemoveButton(String title, TreeSet<Human> col,LabTable table){
+    RemoveButton(String title, TreeSet<Human> col,LabTable table, JTextPane pole){
         super(title);
         rmTextField=new JTextField("Введите объект в формате JSON",40);
-        addActionListener(new RemoveListener(rmTextField,col,table));
+        addActionListener(new RemoveListener(rmTextField,col,table, pole));
     }
 }
