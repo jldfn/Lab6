@@ -102,15 +102,15 @@
       <file leaf-file-name="LabFrame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/LabFrame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="515">
-              <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+            <state relative-caret-position="243">
+              <caret line="31" column="58" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#428#429#0" expanded="true" />
                 <element signature="e#456#457#0" expanded="true" />
                 <element signature="e#500#501#0" expanded="true" />
                 <element signature="e#534#535#0" expanded="true" />
-                <element signature="e#1364#1374#0" expanded="true" />
+                <element signature="e#1481#1491#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -645,13 +645,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LabFrame.java</url>
-          <line>31</line>
+          <line>34</line>
           <properties />
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/LabFrame.java</url>
-          <line>32</line>
+          <line>35</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
@@ -871,15 +871,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/LabFrame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="515">
-          <caret line="52" column="17" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+        <state relative-caret-position="243">
+          <caret line="31" column="58" selection-start-line="31" selection-start-column="58" selection-end-line="31" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#428#429#0" expanded="true" />
             <element signature="e#456#457#0" expanded="true" />
             <element signature="e#500#501#0" expanded="true" />
             <element signature="e#534#535#0" expanded="true" />
-            <element signature="e#1364#1374#0" expanded="true" />
+            <element signature="e#1481#1491#0" expanded="true" />
           </folding>
         </state>
       </provider>
