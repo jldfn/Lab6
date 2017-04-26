@@ -25,8 +25,10 @@ public class LabFrame extends JFrame {
     LabFrame(String title, LabCollection labCollection){
         super(title);
         setLayout(new FlowLayout());
-        JTextPane OutputPanel=new JTextPane();
         table=new LabTable(labCollection.getUselessData());
+        JTextPane OutputPanel=new JTextPane();
+        OutputPanel.setText("Здравствуйте"+System.getProperty("line.separator")+"Здесь будут выводиться все сообщения системы");
+        OutputPanel.setEditable(false);
         LabButton rmButton=new LabButton("Remove",labCollection.getUselessData(),table,"Rm",OutputPanel);
         LabButton rmLButton=new LabButton("Remove Lower",labCollection.getUselessData(),table,"RmL",OutputPanel);
         LabButton ImportButton=new LabButton("Import",labCollection.getUselessData(),table,"Imp",OutputPanel);
@@ -54,13 +56,11 @@ public class LabFrame extends JFrame {
         sortTable.setRowSorter(sort);
         saveButton.addActionListener(new SaveListener(labCollection,OutputPanel));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        OutputPanel.setSize(700,300);
-        OutputPanel.setVisible(true);
         add(rmLButton.getButtonPanel());
         add(ImportButton.getButtonPanel());
         add(rmButton.getButtonPanel());
         add(saveButton);
-        add(OutputPanel);
+        add(new JScrollPane(OutputPanel));
         add(TablePanel);
         pack();
     }

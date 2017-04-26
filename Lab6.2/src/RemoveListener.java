@@ -20,7 +20,7 @@ public class RemoveListener extends LabListener{
             Human currentElement = (Human) iter.next();
             if (currentElement.equals(consoleArgument)) {
                 iter.remove();
-                System.out.println("Элемент " + consoleArgument.toString() + " успешно удалён из коллекции");
+                getOutputPanel().setText(getOutputPanel().getText()+System.getProperty("line.separator")+"Элемент " + consoleArgument.toString() + " успешно удалён из коллекции");
                 removed = true;
                 getColTable().fireTableDataChanged();
                 break;
