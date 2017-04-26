@@ -1,11 +1,12 @@
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableModel;
 import java.util.TreeSet;
 
 /**
  * Created by Денис on 25.04.2017.
  */
-public class LabTable extends AbstractTableModel {
+public class LabTable extends AbstractTableModel implements TableModel {
     TreeSet<Human> Humans;
     LabTable(TreeSet<Human> Humans){
         super();
@@ -59,5 +60,17 @@ public class LabTable extends AbstractTableModel {
     @Override
     public int getColumnCount() {
         return 3; //4;
+    }
+
+    @Override
+    public Class<?> getColumnClass(int columnIndex) {
+        Class returnValue;
+        if ((columnIndex >= 0) && (columnIndex < getColumnCount())) {
+
+            returnValue = getValueAt(0, columnIndex).getClass();
+        } else {
+            returnValue = Object.class;
+        }
+        return returnValue;
     }
 }

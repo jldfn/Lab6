@@ -1,4 +1,7 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.util.TreeSet;
 
@@ -26,6 +29,9 @@ public class LabFrame extends JFrame {
         LabButton rmLButton=new LabButton("Remove Lower",labCollection.getUselessData(),table,"RmL",OutputPanel);
         LabButton ImportButton=new LabButton("Import",labCollection.getUselessData(),table,"Imp",OutputPanel);
         JButton saveButton=new JButton("Save");
+        RowSorter<LabTable> sort=new TableRowSorter<LabTable>(table);
+        JTable sortTable=new JTable(table);
+        sortTable.setRowSorter(sort);
         saveButton.addActionListener(new SaveListener(labCollection,OutputPanel));
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         OutputPanel.setSize(700,300);
@@ -35,9 +41,8 @@ public class LabFrame extends JFrame {
         add(rmButton.getButtonPanel());
         add(saveButton);
         add(OutputPanel);
-        add(new JScrollPane(new JTable(table)));
+        add(new JScrollPane(sortTable));
         pack();
-
     }
 
 }
