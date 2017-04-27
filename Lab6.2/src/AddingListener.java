@@ -33,23 +33,18 @@ public class AddingListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         int i= (int) JSP.getValue();
         while (i>0) {
-            int random_number1 = 0 + (int) (Math.random() * 49);
+            int random_number1 = 0 + (int) (Math.random() * 50);
             Names name = Names.fromId(random_number1);
             String humanName = name.toString();
             int random_number2 = 0 + (int) (Math.random() * 100);
             int ageOfHuman = random_number2;
-            int random_number3 = 0 + (int) (Math.random() * 49);
+            int random_number3 = 0 + (int) (Math.random() * 50);
             Cities city = Cities.fromId(random_number3);
             String location = city.toString();
             Human RandomMan = new Human(humanName, ageOfHuman, location);
             collection.add(RandomMan);
             getColTable().fireTableDataChanged();
             i--;
-            try {
-                sleep(10);
-            } catch (InterruptedException e1) {
-                e1.printStackTrace();
-            }
         }
     }
 }

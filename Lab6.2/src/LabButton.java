@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.util.TreeSet;
 
 /**
@@ -11,6 +12,7 @@ public class LabButton extends JButton{
 
     LabButton(String title, TreeSet<Human> col,LabTable table,String type,JTextPane out){
         super(title);
+        setPreferredSize(new Dimension(125,25));
         switch (type){
             case "Rm":{ButtonTextField=new JTextField("Введите объект в формате JSON",50);
                 addActionListener(new RemoveListener(ButtonTextField,col,table,out));
