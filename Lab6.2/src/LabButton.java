@@ -24,6 +24,7 @@ public class LabButton extends JButton{
                 addActionListener(new ImportListener(ButtonTextField,col,table,out));}
         }
         ButtonPanel=new JPanel();
+        ButtonPanel.setOpaque(false);
         ButtonPanel.add(ButtonTextField);
         ButtonPanel.add(this);
     }

@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
@@ -5,6 +6,8 @@ import javax.swing.table.TableRowSorter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.io.IOException;
 import java.util.TreeSet;
 
 /**
@@ -24,6 +27,11 @@ public class LabFrame extends JFrame {
 
     LabFrame(String title, LabCollection labCollection){
         super(title);
+        try {
+            setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("C:/Users/Денис/Desktop/isla2.png")))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         setSize(720,850);
         setResizable(false);
         setLayout(new FlowLayout());
@@ -32,6 +40,10 @@ public class LabFrame extends JFrame {
         JSpinner spin = new JSpinner();
         JProgressBar jpb = new JProgressBar();
         AddingButton addHuman = new AddingButton(spin,labCollection.getUselessData(),table, jpb);
+        JPanel spinPanel=new JPanel();
+        spinPanel.setOpaque(false);
+        spinPanel.add(addHuman);
+        spinPanel.add(spin);
         spin.setValue(0);
         spin.setPreferredSize(new Dimension(90,30));
         addHuman.setText("Нажать, чтобы добавить людей в данном количестве");
@@ -47,6 +59,7 @@ public class LabFrame extends JFrame {
         JTextField filterText=new JTextField(30);
         JButton filterButton=new JButton("Filter");
         JPanel filterPanel=new JPanel();
+        filterPanel.setOpaque(false);
         filterPanel.add(filterButton);
         filterPanel.add(filterText);
         filterButton.addActionListener(new ActionListener() {
@@ -67,9 +80,8 @@ public class LabFrame extends JFrame {
         add(saveButton);
         add(filterPanel);
         add(new JScrollPane(sortTable));
+        add(spinPanel);
         add(new JScrollPane(OutputPanel));
-        add(spin);
-        add(addHuman);
         jpb.setPreferredSize(new Dimension(600,35));
         jpb.setIndeterminate(true);
         add(jpb);
