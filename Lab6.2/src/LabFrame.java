@@ -30,11 +30,11 @@ public class LabFrame extends JFrame {
         table=new LabTable(labCollection.getUselessData());
         JTextPane OutputPanel=new JTextPane();
         JSpinner spin = new JSpinner();
-        AddingButton addHuman = new AddingButton(spin,labCollection.getUselessData(),table);
+        JProgressBar jpb = new JProgressBar();
+        AddingButton addHuman = new AddingButton(spin,labCollection.getUselessData(),table, jpb);
         spin.setValue(0);
         spin.setPreferredSize(new Dimension(90,30));
         addHuman.setText("Нажать, чтобы добавить людей в данном количестве");
-
         OutputPanel.setPreferredSize(new Dimension(690,135));
         OutputPanel.setText("Здравствуйте"+System.getProperty("line.separator")+"Здесь будут выводиться все сообщения системы");
         OutputPanel.setEditable(false);
@@ -70,6 +70,9 @@ public class LabFrame extends JFrame {
         add(new JScrollPane(OutputPanel));
         add(spin);
         add(addHuman);
+        jpb.setPreferredSize(new Dimension(600,35));
+        jpb.setIndeterminate(true);
+        add(jpb);
     }
 
 }
