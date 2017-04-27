@@ -9,8 +9,6 @@ public class LabButton extends JButton{
 
     private JTextField ButtonTextField;
 
-    private JTextPane OutputPanel;
-
     LabButton(String title, TreeSet<Human> col,LabTable table,String type,JTextPane out){
         super(title);
         switch (type){

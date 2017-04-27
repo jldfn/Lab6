@@ -11,7 +11,7 @@ public abstract class LabListener implements ActionListener {
     private LabTable colTable;
     private JTextPane OutputPanel;
 
-    LabListener(JTextField field, TreeSet<Human> col, LabTable colTable,JTextPane out){
+    LabListener(JTextField field, TreeSet<Human> col, LabTable colTable, JTextPane out){
         super();
         collection=col;
         object=field;
