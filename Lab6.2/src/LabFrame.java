@@ -83,7 +83,7 @@ public class LabFrame extends JFrame {
         add(spinPanel);
         add(new JScrollPane(OutputPanel));
         jpb.setPreferredSize(new Dimension(600,35));
-        jpb.setIndeterminate(true);
+        jpb.setIndeterminate(false);
         add(jpb);
     }
 
