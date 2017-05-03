@@ -103,9 +103,13 @@ public class ConsoleApp {
         spinPanel.add(addHuman);
         spinPanel.add(spin);
         spin.setValue(0);
-        spin.setPreferredSize(new Dimension(90,30));
+        spin.setPreferredSize(new Dimension(45,25));
         addHuman.setText("Нажать, чтобы добавить людей в данном количестве");
         //  </"Add" button setting>
+
+        //  <"SingleAdd" button setting>
+            SingleAddingButton addingButton=new SingleAddingButton(new JTextField(),new JSpinner(),new JTextField(),labCollection.getUselessData(),guiFrame.getTable(),OutputPanel);
+        //  </"SingleAdd" button setting>
 
         //  <"Remove" button setting>
         LabButton rmButton=new LabButton("Remove",labCollection.getUselessData(),guiFrame.getTable(),"Rm",OutputPanel);
@@ -128,10 +132,11 @@ public class ConsoleApp {
         guiFrame.add(rmLButton.getButtonPanel());
         guiFrame.add(ImportButton.getButtonPanel());
         guiFrame.add(rmButton.getButtonPanel());
+        guiFrame.add(addingButton.getAddingPanel());
         guiFrame.add(saveButton);
         guiFrame.add(filterPanel);
         guiFrame.add(new JScrollPane(sortTable));
-        guiFrame.add(spinPanel);
+        //guiFrame.add(spinPanel);
         guiFrame.add(new JScrollPane(OutputPanel));
         guiFrame.add(jpb);
         //  </Adding elements to frame>
