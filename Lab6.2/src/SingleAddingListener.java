@@ -27,7 +27,9 @@ public class SingleAddingListener implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        collection.add(new Human(nameField.getText(),(int) ageSpinner.getValue(),locField.getText()));
+        Human Person=new Human(nameField.getText(),(int) ageSpinner.getValue(),locField.getText());
+        collection.add(Person);
         table.fireTableDataChanged();
+        output.setText(output.getText()+System.getProperty("line.separator")+"Объект "+Person.toString()+" был успешно занесен в коллекцию");
     }
 }
