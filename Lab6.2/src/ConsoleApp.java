@@ -2,7 +2,12 @@
  * Created by Денис on 02.03.2017.
  */
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import javax.swing.table.TableRowSorter;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.util.Iterator;
 import java.util.Scanner;
@@ -15,22 +20,123 @@ public class ConsoleApp {
 
 
     public static void main(String[] args) {
-        LabCollection ExpCol=ImportFrom(defaultPath);
+        LabCollection ExpCol = ImportFrom(defaultPath);
         SwingUtilities.invokeLater(
                 new Runnable() {
                     @Override
                     public void run() {
-                        LabFrame frame = new LabFrame("Test", ExpCol);
-                        frame.setVisible(true);
+                        gui(ExpCol);
                     }
                 });
-        Runtime.getRuntime().addShutdownHook(new Thread(){
-            public void run() {
-                SaveCollection(ExpCol);
-        }
-        }
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+                                                 public void run() {
+                                                     SaveCollection(ExpCol);
+                                                 }
+                                             }
         );
-        SaveCollection(ExpCol);
+    }
+
+    private static void gui(LabCollection labCollection){
+        LabFrame guiFrame= new LabFrame("SomeTitle");
+
+        //  <Background setting>
+        try {
+            guiFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("C:/Users/Денис/Desktop/animebg.jpg")))));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        //  </Background setting>
+
+        //  <Frame Setting>
+        guiFrame.setSize(720,850);
+        guiFrame.setResizable(false);
+        guiFrame.setLayout(new FlowLayout());
+        guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //  </Frame Setting>
+
+        //  <Table setting>
+        guiFrame.setTable(new LabTable(labCollection.getUselessData()));
+        //  <Table sorter setting>
+        TableRowSorter<LabTable> sort=new TableRowSorter<LabTable>(guiFrame.getTable());
+        JTable sortTable=new JTable(guiFrame.getTable());
+        sortTable.setRowSorter(sort);
+        // </Table sorter setting>
+
+        // <Table filter setting>
+        JTextField filterText=new JTextField(30);
+        JButton filterButton=new JButton("Filter");
+        JPanel filterPanel=new JPanel();
+        filterPanel.setOpaque(false);
+        filterPanel.add(filterButton);
+        filterPanel.add(filterText);
+        filterButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(filterText.getText().length()==0){sort.setRowFilter(null);}
+                else{
+                    sort.setRowFilter(RowFilter.regexFilter(filterText.getText()));
+                }
+            }
+        });
+        // <Table filter setting>
+
+        //  </Table setting>
+
+        //  <Output panel Setting>
+        JTextPane OutputPanel=new JTextPane();
+        OutputPanel.setPreferredSize(new Dimension(690,135));
+        OutputPanel.setText("Здравствуйте"+System.getProperty("line.separator")+"Здесь будут выводиться все сообщения системы");
+        OutputPanel.setEditable(false);
+        //  </Output panel setting>
+
+        //  <ProgressBar setting>
+        JProgressBar jpb = new JProgressBar();
+        jpb.setPreferredSize(new Dimension(600,35));
+        jpb.setIndeterminate(true);
+        //  </ProgressBar setting>
+
+        //  <"Add" button setting>
+        JSpinner spin = new JSpinner();
+        AddingButton addHuman = new AddingButton(spin,labCollection.getUselessData(),guiFrame.getTable(), jpb);
+        JPanel spinPanel=new JPanel();
+        spinPanel.setOpaque(false);
+        spinPanel.add(addHuman);
+        spinPanel.add(spin);
+        spin.setValue(0);
+        spin.setPreferredSize(new Dimension(90,30));
+        addHuman.setText("Нажать, чтобы добавить людей в данном количестве");
+        //  </"Add" button setting>
+
+        //  <"Remove" button setting>
+        LabButton rmButton=new LabButton("Remove",labCollection.getUselessData(),guiFrame.getTable(),"Rm",OutputPanel);
+        //  </"Remove" button setting>
+
+        //  <"Remove lower" button setting>
+        LabButton rmLButton=new LabButton("Remove Lower",labCollection.getUselessData(),guiFrame.getTable(),"RmL",OutputPanel);
+        //  </"Remove lower" button setting>
+
+        //  <"Import" button setting>
+        LabButton ImportButton=new LabButton("Import",labCollection.getUselessData(),guiFrame.getTable(),"Imp",OutputPanel);
+        //  </"Import" button setting>
+
+        //  <"Save" button setting>
+        JButton saveButton=new JButton("Save");
+        saveButton.addActionListener(new SaveListener(labCollection,OutputPanel));
+        //  </"Save" button setting>
+
+        //  <Adding elements to frame>
+        guiFrame.add(rmLButton.getButtonPanel());
+        guiFrame.add(ImportButton.getButtonPanel());
+        guiFrame.add(rmButton.getButtonPanel());
+        guiFrame.add(saveButton);
+        guiFrame.add(filterPanel);
+        guiFrame.add(new JScrollPane(sortTable));
+        guiFrame.add(spinPanel);
+        guiFrame.add(new JScrollPane(OutputPanel));
+        guiFrame.add(jpb);
+        //  </Adding elements to frame>
+
+        guiFrame.setVisible(true);
     }
 
     public static Human ParseJSON(String parseString) {
