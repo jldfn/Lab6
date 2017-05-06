@@ -95,6 +95,8 @@ public class ConsoleApp {
         OutputPanel.setPreferredSize(new Dimension(690, 135));
         OutputPanel.setText("Здравствуйте" + System.getProperty("line.separator") + "Здесь будут выводиться все сообщения системы");
         OutputPanel.setEditable(false);
+        TextPaneOutputStream outputStream=new TextPaneOutputStream(OutputPanel);
+        System.setOut(new PrintStream(outputStream));
         //  </Output panel setting>
 
         //  <ProgressBar setting>
