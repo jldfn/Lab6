@@ -52,10 +52,11 @@ public class LabTable extends AbstractTableModel implements TableModel {
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         Human[] arr=Humans.toArray(new Human[Humans.size()]);
         switch (columnIndex){
-            case 1:arr[(int) getValueAt(rowIndex,0)-1].setName((String) aValue); break;
-            case 2:arr[(int) getValueAt(rowIndex,0)-1].setAge((int) aValue); break;
-            case 3:arr[(int) getValueAt(rowIndex,0)-1].setLocation((String) aValue); break;
+            case 1: Humans.add(new Human((String)aValue,  arr[(int) getValueAt(rowIndex,0)-1].getAge(),  arr[(int) getValueAt(rowIndex,0)-1].getLocation())); break;
+            case 2: Humans.add(new Human(arr[(int) getValueAt(rowIndex,0)-1].getName(),  (int)aValue,  arr[(int) getValueAt(rowIndex,0)-1].getLocation())); break;
+            case 3: Humans.add(new Human(arr[(int) getValueAt(rowIndex,0)-1].getName(),  arr[(int) getValueAt(rowIndex,0)-1].getAge(),  (String)aValue)); break;
         }
+        Humans.remove(arr[(int) getValueAt(rowIndex,0)-1]);
         fireTableDataChanged();
     }
 
