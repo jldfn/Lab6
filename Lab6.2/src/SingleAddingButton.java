@@ -9,10 +9,10 @@ public class SingleAddingButton extends JButton{
 
     private JPanel addingPanel;
 
-    SingleAddingButton(JTextField nameField,JSpinner ageSpinner,JTextField locField,TreeSet<Human> col, LabTable colTable, JTextPane out){
+    SingleAddingButton(JTextField nameField,JSpinner ageSpinner,JTextField locField,TreeSet<Human> col, LabTable colTable){
         super("Add");
         addingPanel=new JPanel();
-        addActionListener(new SingleAddingListener(nameField,ageSpinner,locField,col,colTable,out));
+        addActionListener(new SingleAddingListener(nameField,ageSpinner,locField,col,colTable));
         setPreferredSize(new Dimension(125,25));
         nameField.setColumns(22);
         locField.setColumns(22);

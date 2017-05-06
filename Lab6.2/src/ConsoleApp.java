@@ -118,24 +118,24 @@ public class ConsoleApp {
         //  </"Add" button setting>
 
         //  <"SingleAdd" button setting>
-        SingleAddingButton addingButton = new SingleAddingButton(new JTextField(), new JSpinner(), new JTextField(), labCollection.getUselessData(), guiFrame.getTable(), OutputPanel);
+        SingleAddingButton addingButton = new SingleAddingButton(new JTextField(), new JSpinner(), new JTextField(), labCollection.getUselessData(), guiFrame.getTable());
         //  </"SingleAdd" button setting>
 
         //  <"Remove" button setting>
-        LabButton rmButton = new LabButton("Remove", labCollection.getUselessData(), guiFrame.getTable(), "Rm", OutputPanel);
+        LabButton rmButton = new LabButton("Remove", labCollection.getUselessData(), guiFrame.getTable(), "Rm");
         //  </"Remove" button setting>
 
         //  <"Remove lower" button setting>
-        LabButton rmLButton = new LabButton("Remove Lower", labCollection.getUselessData(), guiFrame.getTable(), "RmL", OutputPanel);
+        LabButton rmLButton = new LabButton("Remove Lower", labCollection.getUselessData(), guiFrame.getTable(), "RmL");
         //  </"Remove lower" button setting>
 
         //  <"Import" button setting>
-        LabButton ImportButton = new LabButton("Import", labCollection.getUselessData(), guiFrame.getTable(), "Imp", OutputPanel);
+        LabButton ImportButton = new LabButton("Import", labCollection.getUselessData(), guiFrame.getTable(), "Imp");
         //  </"Import" button setting>
 
         //  <"Save" button setting>
         JButton saveButton = new JButton("Save");
-        saveButton.addActionListener(new SaveListener(labCollection, OutputPanel));
+        saveButton.addActionListener(new SaveListener(labCollection));
         //  </"Save" button setting>
 
         //  <Adding elements to frame>
@@ -170,10 +170,10 @@ public class ConsoleApp {
                         case "\"name\"":
                             Matcher hName = Pattern.compile("[0-9]").matcher(buffString[1]);
                             if (hName.find()) {
-                                System.out.println("Поле name может содержать исключительно символы латинского алфавита и кириллицы");
+                                System.out.print("Поле name может содержать исключительно символы латинского алфавита и кириллицы");
                             } else {
                                 if (name != null)
-                                    System.out.println("Атрибут name введён повторно, будет использовано следующее значение: " + buffString[1]);
+                                    System.out.print("Атрибут name введён повторно, будет использовано следующее значение: " + buffString[1]);
                                 name = buffString[1].substring(1, buffString[1].length() - 1);
                                 hasAttributes[0] = true;
                             }
@@ -182,37 +182,37 @@ public class ConsoleApp {
                             Matcher hAge = Pattern.compile("\"[0-9]+\"").matcher(buffString[1]);
                             if (hAge.matches()) {
                                 if (age != -1)
-                                    System.out.println("Атрибут age введён несколько раз, будет использовано последнее значение: " + buffString[1]);
+                                    System.out.print("Атрибут age введён несколько раз, будет использовано последнее значение: " + buffString[1]);
                                 age = Integer.parseInt(buffString[1].substring(1, buffString[1].length() - 1));
                                 hasAttributes[1] = true;
                             } else {
-                                System.out.println("В возрасте могут присутствовать только цифры!");
+                                System.out.print("В возрасте могут присутствовать только цифры!");
                             }
                             break;
                         case "\"loc\"":
                             if (location != null)
-                                System.out.println("Атрибут location введён несколько раз, будет использовано корректное последнее значение" + buffString[1]);
+                                System.out.print("Атрибут location введён несколько раз, будет использовано корректное последнее значение" + buffString[1]);
                             location = buffString[1].substring(1, buffString[1].length() - 1);
                             hasAttributes[2] = true;
                             break;
                         default:
-                            System.out.println("В классе Human нет поля " + buffString[0]);
+                            System.out.print("В классе Human нет поля " + buffString[0]);
                     }
                 }
                 if (hasAttributes[0] && hasAttributes[1] && hasAttributes[2]) {
                     return (new Human(name, age, location));
                 } else {
-                    if (!hasAttributes[0]) System.out.println("Атрибут name не был задан");
-                    if (!hasAttributes[1]) System.out.println("Атрибут age не был задан");
-                    if (!hasAttributes[2]) System.out.println("Атрибут location не был задан");
+                    if (!hasAttributes[0]) System.out.print("Атрибут name не был задан");
+                    if (!hasAttributes[1]) System.out.print("Атрибут age не был задан");
+                    if (!hasAttributes[2]) System.out.print("Атрибут location не был задан");
                 }
             } else {
-                System.out.println("Объекты данного типа не могут быть занесены в коллекцию");
+                System.out.print("Объекты данного типа не могут быть занесены в коллекцию");
             }
         } catch (IndexOutOfBoundsException e) {
-            System.out.println("Ошибка преобразования объекта");
+            System.out.print("Ошибка преобразования объекта");
         } catch (NumberFormatException l) {
-            System.out.println("Ошибка преобразования численного поля");
+            System.out.print("Ошибка преобразования численного поля");
         }
         return (null);
     }
@@ -227,7 +227,6 @@ public class ConsoleApp {
             currentString = startReader.nextLine();
             while (!currentString.contains("</Collection>")) {
                 String[] sepString = currentString.split(" ");
-                System.out.println(sepString[0].matches("\t<Human"));
                 if (sepString[0].matches("\t<Human")) {
                     String name = null;
                     boolean[] hasAttributes = new boolean[3];
@@ -240,10 +239,10 @@ public class ConsoleApp {
                             case "name":
                                 Matcher hName = Pattern.compile("[0-9]").matcher(buffString[1]);
                                 if (hName.find()) {
-                                    System.out.println("Поле name может содержать исключительно символы латинского алфавита и кириллицы");
+                                    System.out.print("Поле name может содержать исключительно символы латинского алфавита и кириллицы");
                                 } else {
                                     if (name != null)
-                                        System.out.println("Атрибут name введён повторно, будет использовано следующее значение: " + buffString[1]);
+                                        System.out.print("Атрибут name введён повторно, будет использовано следующее значение: " + buffString[1]);
                                     name = buffString[1].substring(1, buffString[1].length() - 1);
                                     hasAttributes[0] = true;
                                 }
@@ -252,37 +251,39 @@ public class ConsoleApp {
                                 Matcher hAge = Pattern.compile("\"[0-9]+\"").matcher(buffString[1]);
                                 if (hAge.matches()) {
                                     if (age != -1)
-                                        System.out.println("Атрибут age введён несколько раз, будет использовано последнее значение: " + buffString[1]);
+                                        System.out.print("Атрибут age введён несколько раз, будет использовано последнее значение: " + buffString[1]);
                                     age = Integer.parseInt(buffString[1].substring(1, buffString[1].length() - 1));
                                     hasAttributes[1] = true;
                                 } else {
-                                    System.out.println("В возрасте могут присутствовать только цифры!");
+                                    System.out.print("В возрасте могут присутствовать только цифры!");
                                 }
                                 break;
                             case "loc":
                                 if (location != null)
-                                    System.out.println("Атрибут location введён несколько раз, будет использовано корректное последнее значение" + buffString[1]);
+                                    System.out.print("Атрибут location введён несколько раз, будет использовано корректное последнее значение" + buffString[1]);
                                 location = buffString[1].substring(1, buffString[1].length() - 1);
                                 hasAttributes[2] = true;
                                 break;
                             default:
-                                System.out.println("В классе Human нет поля " + buffString[0]);
+                                System.out.print("В классе Human нет поля " + buffString[0]);
                         }
                     }
                     if (hasAttributes[0] && hasAttributes[1] && hasAttributes[2]) {
-                        a.getUselessData().add(new Human(name, age, location));
+                        Human newHuman=new Human(name, age, location);
+                        System.out.print("Объект "+newHuman.toString()+" успешно был добавлен в коллекцию");
+                        a.getUselessData().add(newHuman);
                     } else {
-                        if (!hasAttributes[0]) System.out.println("Атрибут name не был задан");
-                        if (!hasAttributes[1]) System.out.println("Атрибут age не был задан");
-                        if (!hasAttributes[2]) System.out.println("Атрибут location не был задан");
+                        if (!hasAttributes[0]) System.out.print("Атрибут name не был задан");
+                        if (!hasAttributes[1]) System.out.print("Атрибут age не был задан");
+                        if (!hasAttributes[2]) System.out.print("Атрибут location не был задан");
                     }
                 } else {
-                    System.out.println("Объекты данного типа не могут быть занесены в коллекцию");
+                    System.out.print("Объекты данного типа не могут быть занесены в коллекцию");
                 }
                 currentString = startReader.nextLine();
             }
         } catch (FileNotFoundException e) {
-            System.out.println("Файл не найден");
+            System.out.print("Файл не найден");
         }
         return a;
     }
@@ -310,11 +311,11 @@ public class ConsoleApp {
             }
             writer.write("</Collection>");
             writer.close();
+            System.out.print("Коллекция успешно сохранена в файл "+defaultPath);
         } catch (Exception f) {
-            System.out.println(f.getCause() + " " + f.getMessage());
+            System.out.print(f.getMessage());
         }
     }
 
-    ;
 }
 

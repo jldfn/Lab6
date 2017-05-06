@@ -8,8 +8,8 @@ import java.util.TreeSet;
  * Created by Денис on 25.04.2017.
  */
 public class RemoveListener extends LabListener{
-    RemoveListener(JTextField field, TreeSet<Human> col,LabTable colTable,JTextPane out){
-        super(field,col,colTable,out);
+    RemoveListener(JTextField field, TreeSet<Human> col,LabTable colTable){
+        super(field,col,colTable);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -20,11 +20,12 @@ public class RemoveListener extends LabListener{
             Human currentElement = (Human) iter.next();
             if (currentElement.equals(consoleArgument)) {
                 iter.remove();
-                getOutputPanel().setText(getOutputPanel().getText()+System.getProperty("line.separator")+"Элемент " + consoleArgument.toString() + " успешно удалён из коллекции");
+                System.out.print(consoleArgument.toString() + " успешно удалён из коллекции");
                 removed = true;
                 getColTable().fireTableDataChanged();
                 break;
             }
-        }if(!removed){getOutputPanel().setText(getOutputPanel().getText()+System.getProperty("line.separator")+"Данного элемента нет в коллекции");}
+        }if(!removed){ System.out.print("Данного элемента нет в коллекции");}
+        getObject().setText("");
     }
 }

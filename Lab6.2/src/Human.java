@@ -6,16 +6,6 @@ public class Human implements Comparable {
     private String name;
     private int age;
     private String location;
-    private Boolean IsMale;
-
-    public Boolean getGender() {
-        return IsMale;
-    }
-
-    public void setGender(Boolean male) {
-        IsMale = male;
-    }
-
     Human(){}
     Human(String n,int a){
         setAge(a);
@@ -27,16 +17,6 @@ public class Human implements Comparable {
         setName(n);
         setAge(a);
     }
-
-    public void Think(String thoughts){
-        System.out.println( "\""+thoughts+"\""+"- подумал "+name);
-    }
-    public void MoveTo(String l){
-        setLocation(l);
-        System.out.println(name+" находится в локации: "+getLocation());
-    }
-    public void Disappear(){MoveTo("неизвестно где");
-    System.out.println(name+" изчез");}
 
     public String getName() {
         return name;

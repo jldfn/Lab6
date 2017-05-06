@@ -9,22 +9,12 @@ public abstract class LabListener implements ActionListener {
     private JTextField object;
     private TreeSet<Human> collection;
     private LabTable colTable;
-    private JTextPane OutputPanel;
 
-    LabListener(JTextField field, TreeSet<Human> col, LabTable colTable, JTextPane out){
+    LabListener(JTextField field, TreeSet<Human> col, LabTable colTable){
         super();
         collection=col;
         object=field;
         this.colTable=colTable;
-        OutputPanel=out;
-    }
-
-    public JTextPane getOutputPanel() {
-        return OutputPanel;
-    }
-
-    public void setOutputPanel(JTextPane outputPanel) {
-        OutputPanel = outputPanel;
     }
 
     public TreeSet<Human> getCollection() {

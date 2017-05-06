@@ -12,42 +12,16 @@ public class SaveListener implements ActionListener{
     LabCollection collection;
     JTextPane OutputPanel;
 
-    SaveListener(LabCollection collection, JTextPane out){
+    SaveListener(LabCollection collection){
         super();
         this.collection=collection;
-        OutputPanel=out;
-
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                try {
-                    FileWriter toEmptyFile = new FileWriter(ConsoleApp.defaultPath);
-                    BufferedWriter headerWriter = new BufferedWriter(toEmptyFile);
-                    headerWriter.write("<Collection name=\"" + collection.getName() + "\">");
-                    headerWriter.close();
-                    FileWriter fileWriter = new FileWriter(ConsoleApp.defaultPath, true);
-                    BufferedWriter writer = new BufferedWriter(fileWriter);
-                    writer.newLine();
-                    for (Comparable elem : collection.getUselessData()) {
-                        String[] a = elem.toString().split(" ");
-                        switch (elem.toString().charAt(0)) {
-                            case 'Ч': {
-                                writer.write("\t<Human name=\"" + a[3] + "\" age=\"" + a[5] + "\" loc=\"" + a[9] + "\"/>");
-                                writer.newLine();
-                                break;
-                            }
-                        }
-                        writer.flush();
-                    }
-                    writer.write("</Collection>");
-                    writer.close();
-                } catch (Exception f) {
-                    System.out.println(f.getCause() + " " + f.getMessage());
-                }
-                getOutputPanel().setText(getOutputPanel().getText() + System.getProperty("line.separator") + "Коллекция сохранена в файл: " + ConsoleApp.defaultPath);
+                ConsoleApp.SaveCollection(collection);
             }
         }).start();
     }

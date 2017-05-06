@@ -10,18 +10,18 @@ public class LabButton extends JButton{
 
     private JTextField ButtonTextField;
 
-    LabButton(String title, TreeSet<Human> col,LabTable table,String type,JTextPane out){
+    LabButton(String title, TreeSet<Human> col,LabTable table,String type){
         super(title);
         setPreferredSize(new Dimension(125,25));
         switch (type){
             case "Rm":{ButtonTextField=new JTextField("Введите объект в формате JSON",50);
-                addActionListener(new RemoveListener(ButtonTextField,col,table,out));
+                addActionListener(new RemoveListener(ButtonTextField,col,table));
             }break;
             case "RmL":{ButtonTextField=new JTextField("Введите объект в формате JSON",50);
-                addActionListener(new RemoveLowerListener(ButtonTextField,col,table,out));
+                addActionListener(new RemoveLowerListener(ButtonTextField,col,table));
             }break;
             case "Imp":{ButtonTextField=new JTextField("Введите адрес файла в фигурных скобках",50);
-                addActionListener(new ImportListener(ButtonTextField,col,table,out));}
+                addActionListener(new ImportListener(ButtonTextField,col,table));}
         }
         ButtonPanel=new JPanel();
         ButtonPanel.setOpaque(false);
