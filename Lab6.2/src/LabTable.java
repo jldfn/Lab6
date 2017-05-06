@@ -7,10 +7,19 @@ import java.util.TreeSet;
  * Created by Денис on 25.04.2017.
  */
 public class LabTable extends AbstractTableModel implements TableModel {
-    TreeSet<Human> Humans;
+
+    private TreeSet<Human> Humans;
+
     LabTable(TreeSet<Human> Humans){
         super();
         this.Humans=Humans;
+    }
+
+    @Override
+    public boolean isCellEditable(int rowIndex, int columnIndex) {
+        if(columnIndex!=0){
+        return true;
+        }else return false;
     }
 
     @Override
@@ -18,12 +27,15 @@ public class LabTable extends AbstractTableModel implements TableModel {
         String result="";
         switch (column) {
             case 0:
-                result = "Name";
+                result="№";
                 break;
             case 1:
-                result = "Age";
+                result = "Name";
                 break;
             case 2:
+                result = "Age";
+                break;
+            case 3:
                 result = "Location";
                 break;
         }
@@ -34,6 +46,17 @@ public class LabTable extends AbstractTableModel implements TableModel {
     @Override
     public int getRowCount() {
         return Humans.size();
+    }
+
+    @Override
+    public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
+        Human[] arr=Humans.toArray(new Human[Humans.size()]);
+        switch (columnIndex){
+            case 1:arr[(int) getValueAt(rowIndex,0)-1].setName((String) aValue); break;
+            case 2:arr[(int) getValueAt(rowIndex,0)-1].setAge((int) aValue); break;
+            case 3:arr[(int) getValueAt(rowIndex,0)-1].setLocation((String) aValue); break;
+        }
+        fireTableDataChanged();
     }
 
     @Override
@@ -49,9 +72,10 @@ public class LabTable extends AbstractTableModel implements TableModel {
             i++;
         }
         switch(columnIndex){
-            case 0:{return arr[rowIndex].getName();}
-            case 1:{return arr[rowIndex].getAge();}
-            case 2:{return arr[rowIndex].getLocation();}
+            case 0:{return rowIndex+1;}
+            case 1:{return arr[rowIndex].getName();}
+            case 2:{return arr[rowIndex].getAge();}
+            case 3:{return arr[rowIndex].getLocation();}
            // case 3:{return arr[rowIndex].getGender()? "Male":"Female";}
             default:{return null;}
         }
@@ -59,7 +83,7 @@ public class LabTable extends AbstractTableModel implements TableModel {
 
     @Override
     public int getColumnCount() {
-        return 3; //4;
+        return 4; //4;
     }
 
     @Override
