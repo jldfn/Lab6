@@ -50,14 +50,22 @@ public class LabTable extends AbstractTableModel implements TableModel {
 
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
-        Human[] arr=Humans.toArray(new Human[Humans.size()]);
-        switch (columnIndex){
-            case 1: Humans.add(new Human((String)aValue,  arr[(int) getValueAt(rowIndex,0)-1].getAge(),  arr[(int) getValueAt(rowIndex,0)-1].getLocation())); break;
-            case 2: Humans.add(new Human(arr[(int) getValueAt(rowIndex,0)-1].getName(),  (int)aValue,  arr[(int) getValueAt(rowIndex,0)-1].getLocation())); break;
-            case 3: Humans.add(new Human(arr[(int) getValueAt(rowIndex,0)-1].getName(),  arr[(int) getValueAt(rowIndex,0)-1].getAge(),  (String)aValue)); break;
+        if(aValue!=null && aValue.toString().length()>0) {
+            Human[] arr = Humans.toArray(new Human[Humans.size()]);
+            Humans.remove(arr[(int) getValueAt(rowIndex, 0) - 1]);
+            switch (columnIndex) {
+                case 1:
+                    Humans.add(new Human((String) aValue, arr[(int) getValueAt(rowIndex, 0) - 1].getAge(), arr[(int) getValueAt(rowIndex, 0) - 1].getLocation()));
+                    break;
+                case 2:
+                    Humans.add(new Human(arr[(int) getValueAt(rowIndex, 0) - 1].getName(), (int) aValue, arr[(int) getValueAt(rowIndex, 0) - 1].getLocation()));
+                    break;
+                case 3:
+                    Humans.add(new Human(arr[(int) getValueAt(rowIndex, 0) - 1].getName(), arr[(int) getValueAt(rowIndex, 0) - 1].getAge(), (String) aValue));
+                    break;
+            }
+            fireTableDataChanged();
         }
-        Humans.remove(arr[(int) getValueAt(rowIndex,0)-1]);
-        fireTableDataChanged();
     }
 
     @Override

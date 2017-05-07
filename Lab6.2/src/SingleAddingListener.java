@@ -32,6 +32,6 @@ public class SingleAddingListener implements ActionListener{
         ageSpinner.setValue(0);
         locField.setText("");
         table.fireTableDataChanged();
-        output.setText(output.getText()+System.getProperty("line.separator")+"Объект "+Person.toString()+" был успешно занесен в коллекцию");
+        System.out.print("Объект "+Person.toString()+" был успешно занесен в коллекцию");
     }
 }

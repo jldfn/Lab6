@@ -17,7 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ConsoleApp {
-    final static String defaultPath = "C:/Users/Алексей/Desktop/input.txt";
+    final static String defaultPath = "C:/Users/Денис/Desktop/input.txt";
 
 
     public static void main(String[] args) {

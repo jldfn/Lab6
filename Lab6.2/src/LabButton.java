@@ -14,13 +14,13 @@ public class LabButton extends JButton{
         super(title);
         setPreferredSize(new Dimension(125,25));
         switch (type){
-            case "Rm":{ButtonTextField=new JTextField("Введите объект в формате JSON",50);
+            case "Rm":{ButtonTextField=new JTextField(50);
                 addActionListener(new RemoveListener(ButtonTextField,col,table));
             }break;
-            case "RmL":{ButtonTextField=new JTextField("Введите объект в формате JSON",50);
+            case "RmL":{ButtonTextField=new JTextField(50);
                 addActionListener(new RemoveLowerListener(ButtonTextField,col,table));
             }break;
-            case "Imp":{ButtonTextField=new JTextField("Введите адрес файла в фигурных скобках",50);
+            case "Imp":{ButtonTextField=new JTextField(50);
                 addActionListener(new ImportListener(ButtonTextField,col,table));}
         }
         ButtonPanel=new JPanel();
