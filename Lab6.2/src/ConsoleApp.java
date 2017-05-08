@@ -26,7 +26,11 @@ public class ConsoleApp {
                 new Runnable() {
                     @Override
                     public void run() {
-                        gui(ExpCol);
+                        try {
+                            gui(ExpCol);
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
         Runtime.getRuntime().addShutdownHook(new Thread() {
@@ -37,9 +41,8 @@ public class ConsoleApp {
         );
     }
 
-    private static void gui(LabCollection labCollection) {
+    private static void gui(LabCollection labCollection) throws InterruptedException {
         LabFrame guiFrame = new LabFrame("SomeTitle");
-
         //  <Background setting>
         try {
             guiFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("C:/Users/Денис/Desktop/animebg.jpg")))));
@@ -49,7 +52,7 @@ public class ConsoleApp {
         //  </Background setting>
 
         //  <Frame Setting>
-        guiFrame.setSize(720, 850);
+        guiFrame.setSize(720, 900);
         guiFrame.setResizable(false);
         guiFrame.setLayout(new FlowLayout());
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -102,7 +105,7 @@ public class ConsoleApp {
         //  <ProgressBar setting>
         JProgressBar jpb = new JProgressBar();
         jpb.setPreferredSize(new Dimension(600, 35));
-        jpb.setIndeterminate(true);
+        jpb.setIndeterminate(false);
         //  </ProgressBar setting>
 
         //  <"Add" button setting>
@@ -120,17 +123,16 @@ public class ConsoleApp {
         //  <"SingleAdd" button setting>
         SingleAddingButton addingButton = new SingleAddingButton(new JTextField(), new JSpinner(), new JTextField(), labCollection.getUselessData(), guiFrame.getTable());
         //  </"SingleAdd" button setting>
-
         //  <"Remove" button setting>
-        LabButton rmButton = new LabButton("Remove", labCollection.getUselessData(), guiFrame.getTable(), "Rm");
+        LabButton rmButton = new LabButton("Remove", labCollection.getUselessData(), guiFrame.getTable(), "Rm",jpb);
         //  </"Remove" button setting>
 
         //  <"Remove lower" button setting>
-        LabButton rmLButton = new LabButton("Remove Lower", labCollection.getUselessData(), guiFrame.getTable(), "RmL");
+        LabButton rmLButton = new LabButton("Remove Lower", labCollection.getUselessData(), guiFrame.getTable(), "RmL",jpb);
         //  </"Remove lower" button setting>
 
         //  <"Import" button setting>
-        LabButton ImportButton = new LabButton("Import", labCollection.getUselessData(), guiFrame.getTable(), "Imp");
+        LabButton ImportButton = new LabButton("Import", labCollection.getUselessData(), guiFrame.getTable(), "Imp",jpb);
         //  </"Import" button setting>
 
         //  <"Save" button setting>
@@ -146,7 +148,7 @@ public class ConsoleApp {
         guiFrame.add(saveButton);
         guiFrame.add(filterPanel);
         guiFrame.add(new JScrollPane(sortTable));
-        //guiFrame.add(spinPanel);
+        guiFrame.add(spinPanel);
         guiFrame.add(new JScrollPane(OutputPanel));
         guiFrame.add(jpb);
         //  </Adding elements to frame>

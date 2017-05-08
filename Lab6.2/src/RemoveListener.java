@@ -8,8 +8,8 @@ import java.util.TreeSet;
  * Created by Денис on 25.04.2017.
  */
 public class RemoveListener extends LabListener{
-    RemoveListener(JTextField field, TreeSet<Human> col,LabTable colTable){
-        super(field,col,colTable);
+    RemoveListener(JTextField field, TreeSet<Human> col, LabTable colTable, JProgressBar jPBar){
+        super(field,col,colTable,jPBar);
     }
     @Override
     public void actionPerformed(ActionEvent e) {

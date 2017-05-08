@@ -9,11 +9,13 @@ public abstract class LabListener implements ActionListener {
     private JTextField object;
     private TreeSet<Human> collection;
     private LabTable colTable;
+    private JProgressBar jProgress;
 
-    LabListener(JTextField field, TreeSet<Human> col, LabTable colTable){
+    LabListener(JTextField field, TreeSet<Human> col, LabTable colTable, JProgressBar jpb){
         super();
         collection=col;
         object=field;
+        jProgress=jpb;
         this.colTable=colTable;
     }
 

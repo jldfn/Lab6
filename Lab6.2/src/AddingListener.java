@@ -31,15 +31,6 @@ public class AddingListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        SwingUtilities.invokeLater(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                progress.setIndeterminate(false);
-                progress.setValue(0);
-            }
-        });
         int i= (int) JSP.getValue();
         while (i>0) {
             int total = i;
@@ -57,38 +48,8 @@ public class AddingListener implements ActionListener {
             collection.add(RandomMan);
             getColTable().fireTableDataChanged();
             i--;
-            SwingUtilities.invokeLater(
-                    new Runnable() {
-                        @Override
-                        public void run()
-                        {
-                            progress.setValue(percent);
-                        }
-                    });
+
+
         }
-        SwingUtilities.invokeLater(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                progress.setIndeterminate(true);
-                progress.setString("Postprocessing...");
-            }
-        });
-
-// perform postprocessing (close input file, etc)
-
-// DONE!
-
-        SwingUtilities.invokeLater(new Runnable()
-        {
-            @Override
-            public void run()
-            {
-                progress.setIndeterminate(false);
-                progress.setString("Done!");
-                progress.setValue(100);
-            }
-        });
     }
 }

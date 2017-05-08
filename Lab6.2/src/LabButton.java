@@ -7,21 +7,21 @@ import java.util.TreeSet;
  */
 public class LabButton extends JButton{
     private JPanel ButtonPanel;
-
+    private JProgressBar jPBar;
     private JTextField ButtonTextField;
 
-    LabButton(String title, TreeSet<Human> col,LabTable table,String type){
+    LabButton(String title, TreeSet<Human> col,LabTable table,String type, JProgressBar jPBar){
         super(title);
         setPreferredSize(new Dimension(125,25));
         switch (type){
             case "Rm":{ButtonTextField=new JTextField(50);
-                addActionListener(new RemoveListener(ButtonTextField,col,table));
+                addActionListener(new RemoveListener(ButtonTextField,col,table,jPBar));
             }break;
             case "RmL":{ButtonTextField=new JTextField(50);
-                addActionListener(new RemoveLowerListener(ButtonTextField,col,table));
+                addActionListener(new RemoveLowerListener(ButtonTextField,col,table,jPBar));
             }break;
             case "Imp":{ButtonTextField=new JTextField(50);
-                addActionListener(new ImportListener(ButtonTextField,col,table));}
+                addActionListener(new ImportListener(ButtonTextField,col,table,jPBar));}
         }
         ButtonPanel=new JPanel();
         ButtonPanel.setOpaque(false);

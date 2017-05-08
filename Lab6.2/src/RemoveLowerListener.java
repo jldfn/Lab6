@@ -1,3 +1,4 @@
+import javax.imageio.plugins.jpeg.JPEGHuffmanTable;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.util.Iterator;
@@ -7,11 +8,15 @@ import java.util.TreeSet;
  * Created by Денис on 25.04.2017.
  */
 public class RemoveLowerListener extends LabListener {
-    RemoveLowerListener(JTextField field, TreeSet<Human> col, LabTable colTable){
-        super(field,col,colTable);
+    JProgressBar jpb1;
+    RemoveLowerListener(JTextField field, TreeSet<Human> col, LabTable colTable, JProgressBar jpb){
+        super(field,col,colTable,jpb);
+        jpb1=jpb;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
+        ProgressBarThread jPBarThread = new ProgressBarThread(jpb1);
+        jPBarThread.start();
         Iterator iter = getCollection().iterator();
         while (iter.hasNext()) {
             Human consoleArgument = ConsoleApp.ParseJSON(getObject().getText());
@@ -23,5 +28,14 @@ public class RemoveLowerListener extends LabListener {
             }
         }
         getObject().setText("");
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+        jPBarThread.interrupt();
+        System.out.println("Called interruption");
+        //jPBarThread.setCancel(true);
+        //JProgressBar jpb=jPBarThread.getJPB();
     }
 }
