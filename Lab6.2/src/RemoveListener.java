@@ -8,13 +8,13 @@ import java.util.TreeSet;
  * Created by Денис on 25.04.2017.
  */
 public class RemoveListener extends LabListener{
-    RemoveListener(JTextField field, TreeSet<Human> col, LabTable colTable, JProgressBar jPBar){
-        super(field,col,colTable,jPBar);
+    RemoveListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable,JProgressBar jpb){
+        super(nameField,ageSpinner,locField,col,colTable,jpb);
     }
     @Override
     public void actionPerformed(ActionEvent e) {
         Iterator iter = getCollection().iterator();
-        Human consoleArgument = ConsoleApp.ParseJSON(getObject().getText());
+        Human consoleArgument = new Human(getNameField().getText(),(int) getAgeSpinner().getValue(),getLocField().getText());
         boolean removed=false;
         while (iter.hasNext()) {
             Human currentElement = (Human) iter.next();
@@ -22,10 +22,12 @@ public class RemoveListener extends LabListener{
                 iter.remove();
                 System.out.print(consoleArgument.toString() + " успешно удалён из коллекции");
                 removed = true;
-                getColTable().fireTableDataChanged();
+                getTable().fireTableDataChanged();
                 break;
             }
         }if(!removed){ System.out.print("Данного элемента нет в коллекции");}
-        getObject().setText("");
+        getNameField().setText("");
+        getAgeSpinner().setValue(0);
+        getLocField().setText("");
     }
 }

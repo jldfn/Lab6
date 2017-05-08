@@ -17,12 +17,12 @@ public class ImportListener extends LabListener {
         new Thread(new Runnable(){
             @Override
             public void run() {
-                Matcher m= Pattern.compile("\\{([^}]+)\\}").matcher(getObject().getText());
+                Matcher m= Pattern.compile("\\{([^}]+)\\}").matcher(getNameField().getText());
                 while (m.find()) {
                     getCollection().addAll(ConsoleApp.ImportFrom(m.group().substring(1, m.group().length() - 1)).getUselessData());
-                    getColTable().fireTableDataChanged();
+                    getTable().fireTableDataChanged();
                 }
-                getObject().setText("");
+                getNameField().setText("");
             }
         }).start();
     }

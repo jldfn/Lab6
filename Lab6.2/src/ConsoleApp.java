@@ -121,18 +121,18 @@ public class ConsoleApp {
         //  </"Add" button setting>
 
         //  <"SingleAdd" button setting>
-        SingleAddingButton addingButton = new SingleAddingButton(new JTextField(), new JSpinner(), new JTextField(), labCollection.getUselessData(), guiFrame.getTable());
+        LabButton addingButton = new LabButton("Add", labCollection.getUselessData(), guiFrame.getTable(),"Add",new JTextField(),new JSpinner(),new JTextField(),jpb);
         //  </"SingleAdd" button setting>
         //  <"Remove" button setting>
-        LabButton rmButton = new LabButton("Remove", labCollection.getUselessData(), guiFrame.getTable(), "Rm",jpb);
+        LabButton rmButton = new LabButton("Remove", labCollection.getUselessData(), guiFrame.getTable(),"Rm",new JTextField(),new JSpinner(),new JTextField(),jpb);
         //  </"Remove" button setting>
 
         //  <"Remove lower" button setting>
-        LabButton rmLButton = new LabButton("Remove Lower", labCollection.getUselessData(), guiFrame.getTable(), "RmL",jpb);
+        LabButton rmLButton = new LabButton("Remove lower", labCollection.getUselessData(), guiFrame.getTable(),"RmL",new JTextField(),new JSpinner(),new JTextField(),jpb);
         //  </"Remove lower" button setting>
 
         //  <"Import" button setting>
-        LabButton ImportButton = new LabButton("Import", labCollection.getUselessData(), guiFrame.getTable(), "Imp",jpb);
+        LabButton ImportButton = new LabButton(labCollection.getUselessData(), guiFrame.getTable(),new JTextField(),jpb);
         //  </"Import" button setting>
 
         //  <"Save" button setting>
@@ -142,9 +142,9 @@ public class ConsoleApp {
 
         //  <Adding elements to frame>
         guiFrame.add(rmLButton.getButtonPanel());
-        guiFrame.add(ImportButton.getButtonPanel());
         guiFrame.add(rmButton.getButtonPanel());
-        guiFrame.add(addingButton.getAddingPanel());
+        guiFrame.add(addingButton.getButtonPanel());
+        guiFrame.add(ImportButton.getButtonPanel());
         guiFrame.add(saveButton);
         guiFrame.add(filterPanel);
         guiFrame.add(new JScrollPane(sortTable));
@@ -154,69 +154,6 @@ public class ConsoleApp {
         //  </Adding elements to frame>
 
         guiFrame.setVisible(true);
-    }
-
-    public static Human ParseJSON(String parseString) {
-        String[] sepString = parseString.split(" ");
-        Scanner itemReader = new Scanner(System.in);
-        try {
-            if (sepString[0].contains("\"Human\":{")) {
-                String name = null;
-                boolean[] hasAttributes = new boolean[3];
-                int age = -1;
-                String location = null;
-                Matcher forHuman = Pattern.compile("\"[A-z]+\":\"[A-z,А-я,0-9]+\"").matcher(parseString);
-                while (forHuman.find()) {
-                    String[] buffString = forHuman.group().split(":");
-                    switch (buffString[0]) {
-                        case "\"name\"":
-                            Matcher hName = Pattern.compile("[0-9]").matcher(buffString[1]);
-                            if (hName.find()) {
-                                System.out.print("Поле name может содержать исключительно символы латинского алфавита и кириллицы");
-                            } else {
-                                if (name != null)
-                                    System.out.print("Атрибут name введён повторно, будет использовано следующее значение: " + buffString[1]);
-                                name = buffString[1].substring(1, buffString[1].length() - 1);
-                                hasAttributes[0] = true;
-                            }
-                            break;
-                        case "\"age\"":
-                            Matcher hAge = Pattern.compile("\"[0-9]+\"").matcher(buffString[1]);
-                            if (hAge.matches()) {
-                                if (age != -1)
-                                    System.out.print("Атрибут age введён несколько раз, будет использовано последнее значение: " + buffString[1]);
-                                age = Integer.parseInt(buffString[1].substring(1, buffString[1].length() - 1));
-                                hasAttributes[1] = true;
-                            } else {
-                                System.out.print("В возрасте могут присутствовать только цифры!");
-                            }
-                            break;
-                        case "\"loc\"":
-                            if (location != null)
-                                System.out.print("Атрибут location введён несколько раз, будет использовано корректное последнее значение" + buffString[1]);
-                            location = buffString[1].substring(1, buffString[1].length() - 1);
-                            hasAttributes[2] = true;
-                            break;
-                        default:
-                            System.out.print("В классе Human нет поля " + buffString[0]);
-                    }
-                }
-                if (hasAttributes[0] && hasAttributes[1] && hasAttributes[2]) {
-                    return (new Human(name, age, location));
-                } else {
-                    if (!hasAttributes[0]) System.out.print("Атрибут name не был задан");
-                    if (!hasAttributes[1]) System.out.print("Атрибут age не был задан");
-                    if (!hasAttributes[2]) System.out.print("Атрибут location не был задан");
-                }
-            } else {
-                System.out.print("Объекты данного типа не могут быть занесены в коллекцию");
-            }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.print("Ошибка преобразования объекта");
-        } catch (NumberFormatException l) {
-            System.out.print("Ошибка преобразования численного поля");
-        }
-        return (null);
     }
 
     public static LabCollection ImportFrom(String path) {

@@ -6,22 +6,16 @@ import java.util.TreeSet;
 /**
  * Created by Денис on 03.05.2017.
  */
-public class SingleAddingListener implements ActionListener{
+public class SingleAddingListener extends LabListener{
 
     private JTextField nameField;
     private JSpinner ageSpinner;
     private JTextField locField;
     private TreeSet<Human> collection;
     private LabTable table;
-    private JTextPane output;
 
-    SingleAddingListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable){
-        super();
-        this.nameField=nameField;
-        this.ageSpinner=ageSpinner;
-        this.locField=locField;
-        collection=col;
-        table=colTable;
+    SingleAddingListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable,JProgressBar jpb){
+        super(nameField,ageSpinner,locField,col,colTable,jpb);
     }
 
     @Override

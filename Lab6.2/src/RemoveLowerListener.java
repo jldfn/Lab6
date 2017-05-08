@@ -9,8 +9,8 @@ import java.util.TreeSet;
  */
 public class RemoveLowerListener extends LabListener {
     JProgressBar jpb1;
-    RemoveLowerListener(JTextField field, TreeSet<Human> col, LabTable colTable, JProgressBar jpb){
-        super(field,col,colTable,jpb);
+    RemoveLowerListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable,JProgressBar jpb){
+        super(nameField,ageSpinner,locField,col,colTable,jpb);
         jpb1=jpb;
     }
     @Override
@@ -19,15 +19,17 @@ public class RemoveLowerListener extends LabListener {
         jPBarThread.start();
         Iterator iter = getCollection().iterator();
         while (iter.hasNext()) {
-            Human consoleArgument = ConsoleApp.ParseJSON(getObject().getText());
+            Human consoleArgument = new Human(getNameField().getText(),(int)getAgeSpinner().getValue(),getLocField().getText());
             Human a = (Human) iter.next();
             if (consoleArgument.compareTo(a) > 0) {
                 System.out.print(a.toString() + " был удалён из коллекции");
                 iter.remove();
-                getColTable().fireTableDataChanged();
+                getTable().fireTableDataChanged();
             }
         }
-        getObject().setText("");
+        getNameField().setText("");
+        getAgeSpinner().setValue(0);
+        getLocField().setText("");
         try {
             Thread.sleep(1);
         } catch (InterruptedException e1) {

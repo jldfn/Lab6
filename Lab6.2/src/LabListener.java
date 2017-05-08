@@ -6,17 +6,29 @@ import java.util.TreeSet;
  * Created by Денис on 25.04.2017.
  */
 public abstract class LabListener implements ActionListener {
-    private JTextField object;
+    private JTextField nameField;
+    private JSpinner ageSpinner;
+    private JTextField locField;
     private TreeSet<Human> collection;
-    private LabTable colTable;
+    private LabTable table;
     private JProgressBar jProgress;
+
+    LabListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable,JProgressBar jpb){
+        super();
+        this.nameField=nameField;
+        this.ageSpinner=ageSpinner;
+        this.locField=locField;
+        jProgress=jpb;
+        collection=col;
+        table=colTable;
+    }
 
     LabListener(JTextField field, TreeSet<Human> col, LabTable colTable, JProgressBar jpb){
         super();
         collection=col;
-        object=field;
+        nameField=field;
         jProgress=jpb;
-        this.colTable=colTable;
+        this.table=colTable;
     }
 
     public TreeSet<Human> getCollection() {
@@ -27,20 +39,23 @@ public abstract class LabListener implements ActionListener {
         this.collection = collection;
     }
 
-    public LabTable getColTable() {
-        return colTable;
+    public LabTable getTable() {
+        return table;
     }
 
-    public void setColTable(LabTable colTable) {
-        this.colTable = colTable;
+    public void setTable(LabTable colTable) {
+        this.table = colTable;
     }
 
-    public JTextField getObject() {
-
-        return object;
+    public JTextField getNameField() {
+        return nameField;
     }
 
-    public void setObject(JTextField object) {
-        this.object = object;
+    public JSpinner getAgeSpinner() {
+        return ageSpinner;
+    }
+
+    public JTextField getLocField() {
+        return locField;
     }
 }
