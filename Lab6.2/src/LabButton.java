@@ -47,8 +47,5 @@ public class LabButton extends JButton{
         return ButtonPanel;
     }
 
-    public void setButtonPanel(JPanel buttonPanel) {
-        ButtonPanel = buttonPanel;
-    }
 
 }

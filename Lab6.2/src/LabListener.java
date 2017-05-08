@@ -35,17 +35,11 @@ public abstract class LabListener implements ActionListener {
         return collection;
     }
 
-    public void setCollection(TreeSet<Human> collection) {
-        this.collection = collection;
-    }
 
     public LabTable getTable() {
         return table;
     }
 
-    public void setTable(LabTable colTable) {
-        this.table = colTable;
-    }
 
     public JTextField getNameField() {
         return nameField;
@@ -58,4 +52,6 @@ public abstract class LabListener implements ActionListener {
     public JTextField getLocField() {
         return locField;
     }
+
+
 }
