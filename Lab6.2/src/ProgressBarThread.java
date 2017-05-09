@@ -21,7 +21,7 @@ public class ProgressBarThread extends Thread {
     public void run() {
        try{
            jProgressBar.setIndeterminate(true);
-           sleep(10000);
+           sleep(100000);
        }catch (InterruptedException e1){
            System.out.println("Interrupted");
            try {

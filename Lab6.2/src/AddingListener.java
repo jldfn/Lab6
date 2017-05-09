@@ -31,6 +31,8 @@ public class AddingListener implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        ProgressBarThread jPBarThread = new ProgressBarThread(progress);
+        jPBarThread.start();
         int i= (int) JSP.getValue();
         while (i>0) {
             int total = i;
@@ -48,8 +50,12 @@ public class AddingListener implements ActionListener {
             collection.add(RandomMan);
             getColTable().fireTableDataChanged();
             i--;
-
-
         }
+        try {
+            Thread.sleep(1);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+        jPBarThread.interrupt();
     }
 }

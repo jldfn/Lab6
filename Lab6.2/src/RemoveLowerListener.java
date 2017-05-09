@@ -43,9 +43,6 @@ public class RemoveLowerListener extends LabListener {
                         e1.printStackTrace();
                     }
                     jPBarThread.interrupt();
-                    System.out.println("Called interruption");
-                    //jPBarThread.setCancel(true);
-                    //JProgressBar jpb=jPBarThread.getJPB();
                 } else {
                     System.out.print("Поле \"Локация\" не может являться пустым. В локации могут содержаться лишь символы кириллицы, латинского алфавита, цифры, \"-\" и \"_\"");
                 }

@@ -14,8 +14,13 @@ public class SingleAddingListener extends LabListener {
     private TreeSet<Human> collection;
     private LabTable table;
 
-    SingleAddingListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable, JProgressBar jpb) {
-        super(nameField, ageSpinner, locField, col, colTable, jpb);
+    SingleAddingListener(JTextField nameField1, JSpinner ageSpinner1, JTextField locField1, TreeSet<Human> col1, LabTable colTable1, JProgressBar jpb1) {
+        super(nameField1, ageSpinner1, locField1, col1, colTable1, jpb1);
+        nameField=nameField1;
+        ageSpinner=ageSpinner1;
+        locField=locField1;
+        collection=col1;
+        table=colTable1;
     }
 
     @Override
