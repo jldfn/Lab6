@@ -21,17 +21,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ConsoleApp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ConsoleApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ConsoleApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2142">
-              <caret line="142" column="38" lean-forward="false" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
+            <state relative-caret-position="170">
+              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
               <folding>
-                <marker date="1494342181485" expanded="true" signature="5901:5969" ph="//..." />
-                <marker date="1494342181485" expanded="true" signature="6302:6487" ph="{...}" />
-                <marker date="1494342181485" expanded="true" signature="6545:10788" ph="{...}" />
-                <marker date="1494342181485" expanded="true" signature="10855:12029" ph="{...}" />
+                <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="input.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Input_Output_Files/input.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,16 +119,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaskControl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TaskControl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Human.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Human.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -132,7 +129,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SingleAddingListener.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="SingleAddingListener.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SingleAddingListener.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="408">
@@ -186,12 +183,13 @@
         <option value="$PROJECT_DIR$/src/ConsoleAppTest.java" />
         <option value="$PROJECT_DIR$/src/ImportListener.java" />
         <option value="$PROJECT_DIR$/src/SingleAddingButton.java" />
-        <option value="$PROJECT_DIR$/src/ConsoleApp.java" />
         <option value="$PROJECT_DIR$/src/LabButton.java" />
         <option value="$PROJECT_DIR$/src/LabListener.java" />
         <option value="$PROJECT_DIR$/src/RemoveListener.java" />
         <option value="$PROJECT_DIR$/src/RemoveLowerListener.java" />
         <option value="$PROJECT_DIR$/src/SingleAddingListener.java" />
+        <option value="$PROJECT_DIR$/src/SomeFiles/input.txt" />
+        <option value="$PROJECT_DIR$/src/ConsoleApp.java" />
       </list>
     </option>
   </component>
@@ -201,7 +199,7 @@
     <option name="height" value="1056" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="PackagesPane" proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -263,6 +261,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Денис\Desktop\Lab6\Lab6.2\src\Backgrounds" />
+      <recent name="C:\Users\Денис\Desktop\Lab6\Lab6.2\src\SomeFiles" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -561,7 +565,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32977587" sideWeight="0.15240084" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.0" sideWeight="0.84759915" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.84759915" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -656,13 +660,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Cities.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="799">
-          <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/AddingButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -705,10 +702,7 @@
         <state relative-caret-position="1819">
           <caret line="117" column="13" lean-forward="false" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
           <folding>
-            <marker date="1494342181485" expanded="true" signature="5901:5969" ph="//..." />
-            <marker date="1494342181485" expanded="true" signature="6302:6487" ph="{...}" />
-            <marker date="1494342181485" expanded="true" signature="6545:10788" ph="{...}" />
-            <marker date="1494342181485" expanded="true" signature="10855:12029" ph="{...}" />
+            <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -815,10 +809,7 @@
         <state relative-caret-position="238">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
           <folding>
-            <marker date="1494342181485" expanded="true" signature="5901:5969" ph="//..." />
-            <marker date="1494342181485" expanded="true" signature="6302:6487" ph="{...}" />
-            <marker date="1494342181485" expanded="true" signature="6545:10788" ph="{...}" />
-            <marker date="1494342181485" expanded="true" signature="10855:12029" ph="{...}" />
+            <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -889,6 +880,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1000,36 +992,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SingleAddingButton.java" />
-    <entry file="file://$PROJECT_DIR$/src/LabButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1494274468813" expanded="false" signature="1675:1686" ph=" { " />
-            <marker date="1494274468813" expanded="false" signature="1705:1711" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Human.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="158">
           <caret line="18" column="5" lean-forward="false" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ConsoleApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2142">
-          <caret line="142" column="38" lean-forward="false" selection-start-line="142" selection-start-column="38" selection-end-line="142" selection-end-column="38" />
-          <folding>
-            <marker date="1494342181485" expanded="true" signature="5901:5969" ph="//..." />
-            <marker date="1494342181485" expanded="true" signature="6302:6487" ph="{...}" />
-            <marker date="1494342181485" expanded="true" signature="6545:10788" ph="{...}" />
-            <marker date="1494342181485" expanded="true" signature="10855:12029" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1073,6 +1040,36 @@
           <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LabButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1494274468813" expanded="false" signature="1675:1686" ph=" { " />
+            <marker date="1494274468813" expanded="false" signature="1705:1711" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Input_Output_Files/input.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ConsoleApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+          <folding>
+            <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
           </folding>
         </state>
       </provider>

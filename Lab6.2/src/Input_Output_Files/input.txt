@@ -1,0 +1,4 @@
+<Collection name="UselessData">
+	<Human name="ghkkjh" age="3" loc="nm"/>
+	<Human name="фаыпу" age="3" loc="ыафупыцнку"/>
+</Collection>

@@ -17,7 +17,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class ConsoleApp {
-    final static String defaultPath = "C:/Users/Денис/Desktop/input.txt";
+    final static String defaultPath = "src/Input_Output_Files/input.txt";
 
 
     public static void main(String[] args) {
@@ -42,10 +42,10 @@ public class ConsoleApp {
     }
 
     private static void gui(LabCollection labCollection) throws InterruptedException {
-        LabFrame guiFrame = new LabFrame("SomeTitle");
+        LabFrame guiFrame = new LabFrame("Lab6");
         //  <Background setting>
         try {
-            guiFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("C:/Users/Денис/Desktop/animebg.jpg")))));
+            guiFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Backgrounds/animebg.jpg")))));
         } catch (IOException e) {
             e.printStackTrace();
         }
