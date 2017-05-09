@@ -8,19 +8,8 @@ import java.util.regex.Pattern;
  */
 public class SingleAddingListener extends LabListener {
 
-    private JTextField nameField;
-    private JSpinner ageSpinner;
-    private JTextField locField;
-    private TreeSet<Human> collection;
-    private LabTable table;
-
     SingleAddingListener(JTextField nameField1, JSpinner ageSpinner1, JTextField locField1, TreeSet<Human> col1, LabTable colTable1, JProgressBar jpb1) {
         super(nameField1, ageSpinner1, locField1, col1, colTable1, jpb1);
-        nameField=nameField1;
-        ageSpinner=ageSpinner1;
-        locField=locField1;
-        collection=col1;
-        table=colTable1;
     }
 
     @Override
@@ -28,12 +17,12 @@ public class SingleAddingListener extends LabListener {
         if ((int) getAgeSpinner().getValue() >= 0 && (int) getAgeSpinner().getValue() <= 120) {
             if (Pattern.compile("[A-zА-я]+").matcher(getNameField().getText()).matches()) {
                 if (Pattern.compile("[A-zА-я0-9\\-_]+").matcher(getLocField().getText()).matches()) {
-                    Human Person = new Human(nameField.getText(), (int) ageSpinner.getValue(), locField.getText());
-                    collection.add(Person);
-                    nameField.setText("");
-                    ageSpinner.setValue(0);
-                    locField.setText("");
-                    table.fireTableDataChanged();
+                    Human Person = new Human(getNameField().getText(), (int) getAgeSpinner().getValue(), getLocField().getText());
+                    getCollection().add(Person);
+                    getNameField().setText("");
+                    getAgeSpinner().setValue(0);
+                    getLocField().setText("");
+                    getTable().fireTableDataChanged();
                     System.out.print("Объект " + Person.toString() + " был успешно занесен в коллекцию");
                 } else {
                     System.out.print("Поле \"Локация\" не может являться пустым. В локации могут содержаться лишь символы кириллицы, латинского алфавита, цифры, \"-\" и \"_\"");
