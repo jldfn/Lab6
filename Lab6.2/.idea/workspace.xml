@@ -24,10 +24,24 @@
       <file leaf-file-name="ConsoleApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ConsoleApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+            <state relative-caret-position="187">
+              <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
               <folding>
-                <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
+                <marker date="1494346923924" expanded="true" signature="6480:6665" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EnterListener.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EnterListener.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="136">
+              <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#270#271#0" expanded="true" />
+                <element signature="e#306#307#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -46,12 +60,12 @@
       <file leaf-file-name="LabButton.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/LabButton.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+            <state relative-caret-position="296">
+              <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1494274468813" expanded="false" signature="1675:1686" ph=" { " />
-                <marker date="1494274468813" expanded="false" signature="1705:1711" ph=" }" />
+                <marker date="1494346824704" expanded="false" signature="1851:1862" ph=" { " />
+                <marker date="1494346824704" expanded="false" signature="1881:1887" ph=" }" />
               </folding>
             </state>
           </provider>
@@ -95,16 +109,6 @@
                 <element signature="imports" expanded="true" />
                 <marker date="1494275790246" expanded="true" signature="483:489" ph=" }" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ProgressBarThread.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ProgressBarThread.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="21" column="11" lean-forward="true" selection-start-line="21" selection-start-column="11" selection-end-line="21" selection-end-column="11" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -183,12 +187,13 @@
         <option value="$PROJECT_DIR$/src/ConsoleAppTest.java" />
         <option value="$PROJECT_DIR$/src/ImportListener.java" />
         <option value="$PROJECT_DIR$/src/SingleAddingButton.java" />
-        <option value="$PROJECT_DIR$/src/LabButton.java" />
         <option value="$PROJECT_DIR$/src/LabListener.java" />
         <option value="$PROJECT_DIR$/src/RemoveListener.java" />
         <option value="$PROJECT_DIR$/src/RemoveLowerListener.java" />
         <option value="$PROJECT_DIR$/src/SingleAddingListener.java" />
         <option value="$PROJECT_DIR$/src/SomeFiles/input.txt" />
+        <option value="$PROJECT_DIR$/src/LabButton.java" />
+        <option value="$PROJECT_DIR$/src/EnterListener.java" />
         <option value="$PROJECT_DIR$/src/ConsoleApp.java" />
       </list>
     </option>
@@ -660,13 +665,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AddingButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="5" lean-forward="false" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RemoveListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -702,7 +700,7 @@
         <state relative-caret-position="1819">
           <caret line="117" column="13" lean-forward="false" selection-start-line="117" selection-start-column="13" selection-end-line="117" selection-end-column="13" />
           <folding>
-            <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
+            <marker date="1494346923924" expanded="true" signature="6480:6665" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -713,8 +711,8 @@
           <caret line="26" column="35" lean-forward="false" selection-start-line="26" selection-start-column="35" selection-end-line="26" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1494274468813" expanded="false" signature="1675:1686" ph=" { " />
-            <marker date="1494274468813" expanded="false" signature="1705:1711" ph=" }" />
+            <marker date="1494346824704" expanded="false" signature="1851:1862" ph=" { " />
+            <marker date="1494346824704" expanded="false" signature="1881:1887" ph=" }" />
           </folding>
         </state>
       </provider>
@@ -809,7 +807,7 @@
         <state relative-caret-position="238">
           <caret line="22" column="58" lean-forward="false" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
           <folding>
-            <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
+            <marker date="1494346923924" expanded="true" signature="6480:6665" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1044,18 +1042,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/LabButton.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="19" column="24" lean-forward="true" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1494274468813" expanded="false" signature="1675:1686" ph=" { " />
-            <marker date="1494274468813" expanded="false" signature="1705:1711" ph=" }" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Input_Output_Files/input.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1064,12 +1050,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/LabButton.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="41" column="58" lean-forward="true" selection-start-line="41" selection-start-column="58" selection-end-line="41" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1494346824704" expanded="false" signature="1851:1862" ph=" { " />
+            <marker date="1494346824704" expanded="false" signature="1881:1887" ph=" }" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EnterListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="9" column="11" lean-forward="false" selection-start-line="9" selection-start-column="11" selection-end-line="9" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#270#271#0" expanded="true" />
+            <element signature="e#306#307#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ConsoleApp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
+        <state relative-caret-position="187">
+          <caret line="77" column="67" lean-forward="false" selection-start-line="77" selection-start-column="67" selection-end-line="77" selection-end-column="67" />
           <folding>
-            <marker date="1494342841306" expanded="true" signature="6290:6475" ph="{...}" />
+            <marker date="1494346923924" expanded="true" signature="6480:6665" ph="{...}" />
           </folding>
         </state>
       </provider>

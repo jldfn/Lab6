@@ -75,6 +75,8 @@ public class ConsoleApp {
         // <Table filter setting>
         JTextField filterText = new JTextField(30);
         JButton filterButton = new JButton("Filter");
+        filterText.addKeyListener(new EnterListener(filterButton));
+        filterButton.setPreferredSize(new Dimension(125,20));
         JPanel filterPanel = new JPanel();
         filterPanel.setOpaque(false);
         filterPanel.add(filterButton);
@@ -137,6 +139,7 @@ public class ConsoleApp {
 
         //  <"Save" button setting>
         JButton saveButton = new JButton("Save");
+        saveButton.setPreferredSize(new Dimension(125,20));
         saveButton.addActionListener(new SaveListener(labCollection));
         //  </"Save" button setting>
 

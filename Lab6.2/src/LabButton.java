@@ -22,7 +22,9 @@ public class LabButton extends JButton{
         }
         setPreferredSize(new Dimension(125,20));
         nameField.setColumns(22);
+        nameField.addKeyListener(new EnterListener(this));
         locField.setColumns(22);
+        locField.addKeyListener(new EnterListener(this));
         ageSpinner.setPreferredSize(new Dimension(52,20));
         ButtonPanel=new JPanel();
         ButtonPanel.setOpaque(false);
@@ -37,6 +39,7 @@ public class LabButton extends JButton{
         setPreferredSize(new Dimension(125,20));
         addActionListener(new ImportListener(pathField,col,table,jPBar));
         pathField.setColumns(50);
+        pathField.addKeyListener(new EnterListener(this));
         ButtonPanel=new JPanel();
         ButtonPanel.setOpaque(false);
         ButtonPanel.add(pathField);
