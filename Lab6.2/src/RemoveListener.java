@@ -31,7 +31,12 @@ public class RemoveListener extends LabListener {
             guiFrame.setResizable(false);
             guiFrame.setLayout(new FlowLayout());
             guiFrame.setVisible(true);
-            music kebab = new music("src/music/kebab.wav");
+            new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    music kebab = new music("src/music/kebab.wav");
+                }
+            }).start();
         }
         else
         if ((int) getAgeSpinner().getValue() >= 0 && (int) getAgeSpinner().getValue() <= 120) {
