@@ -12,29 +12,26 @@ import java.util.regex.Pattern;
  * Created by Денис on 25.04.2017.
  */
 public class RemoveListener extends LabListener {
-    JTextField jtf;
-    RemoveListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable, JProgressBar jpb) {
+
+    private JLabel backGround;
+
+    RemoveListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable, JProgressBar jpb,JLabel background) {
         super(nameField, ageSpinner, locField, col, colTable, jpb);
-        jtf=nameField;
+        backGround=background;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (jtf.getText().equals("kebab")){
-            JFrame guiFrame = new JFrame("REMOVE KEBAB");
+        if (getNameField().getText().equals("kebab")){
             try {
-                guiFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Backgrounds/kebab.jpg")))));
+                backGround.setIcon(new ImageIcon(ImageIO.read(new File("src/Backgrounds/kebab.jpg"))));
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-            guiFrame.setSize(900, 900);
-            guiFrame.setResizable(false);
-            guiFrame.setLayout(new FlowLayout());
-            guiFrame.setVisible(true);
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    music kebab = new music("src/music/kebab.wav");
+                    new music("src/music/kebab.wav");
                 }
             }).start();
         }

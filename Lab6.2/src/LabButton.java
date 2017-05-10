@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.TreeSet;
 
 /**
@@ -8,29 +9,20 @@ import java.util.TreeSet;
 public class LabButton extends JButton{
     private JPanel ButtonPanel;
 
-    LabButton(String title, TreeSet<Human> col,LabTable table,String type,JTextField nameField,JSpinner ageSpinner,JTextField locField, JProgressBar jPBar){
+    LabButton(String title, LabListener listener){
         super(title);
-        switch (type){
-            case "Rm":{
-                addActionListener(new RemoveListener(nameField,ageSpinner,locField,col,table,jPBar));
-            }break;
-            case "RmL":{
-                addActionListener(new RemoveLowerListener(nameField,ageSpinner,locField,col,table,jPBar));
-            }break;
-            case "Add":{
-                addActionListener(new SingleAddingListener(nameField,ageSpinner,locField,col,table,jPBar));}
-        }
+        addActionListener(listener);
         setPreferredSize(new Dimension(125,20));
-        nameField.setColumns(22);
-        nameField.addKeyListener(new EnterListener(this));
-        locField.setColumns(22);
-        locField.addKeyListener(new EnterListener(this));
-        ageSpinner.setPreferredSize(new Dimension(52,20));
+        listener.getNameField().setColumns(22);
+        listener.getNameField().addKeyListener(new EnterListener(this));
+        listener.getLocField().setColumns(22);
+        listener.getLocField().addKeyListener(new EnterListener(this));
+        listener.getAgeSpinner().setPreferredSize(new Dimension(52,20));
         ButtonPanel=new JPanel();
         ButtonPanel.setOpaque(false);
-        ButtonPanel.add(nameField);
-        ButtonPanel.add(ageSpinner);
-        ButtonPanel.add(locField);
+        ButtonPanel.add(listener.getNameField());
+        ButtonPanel.add(listener.getAgeSpinner());
+        ButtonPanel.add(listener.getLocField());
         ButtonPanel.add(this);
     }
 

@@ -42,8 +42,10 @@ public class ConsoleApp {
     private static void gui(LabCollection labCollection) throws InterruptedException {
         LabFrame guiFrame = new LabFrame("Lab6");
         //  <Background setting>
+        JLabel backLabel=new JLabel();
         try {
-            guiFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Backgrounds/animebg.jpg")))));
+            backLabel=new JLabel(new ImageIcon(ImageIO.read(new File("src/Backgrounds/animebg.jpg"))));
+            guiFrame.setContentPane(backLabel);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -121,14 +123,18 @@ public class ConsoleApp {
         //  </"Add" button setting>
 
         //  <"SingleAdd" button setting>
-        LabButton addingButton = new LabButton("Add", labCollection.getUselessData(), guiFrame.getTable(),"Add",new JTextField(),new JSpinner(),new JTextField(),jpb);
+        SingleAddingListener addingListener=new SingleAddingListener(new JTextField(),new JSpinner(),new JTextField(),labCollection.getUselessData(),guiFrame.getTable(),jpb);
+        LabButton addingButton = new LabButton("Add",addingListener);
         //  </"SingleAdd" button setting>
+
         //  <"Remove" button setting>
-        LabButton rmButton = new LabButton("Remove", labCollection.getUselessData(), guiFrame.getTable(),"Rm",new JTextField(),new JSpinner(),new JTextField(),jpb);
+        RemoveListener rmListener=new RemoveListener(new JTextField(),new JSpinner(),new JTextField(),labCollection.getUselessData(),guiFrame.getTable(),jpb,backLabel);
+        LabButton rmButton = new LabButton("Remove",rmListener);
         //  </"Remove" button setting>
 
         //  <"Remove lower" button setting>
-        LabButton rmLButton = new LabButton("Remove lower", labCollection.getUselessData(), guiFrame.getTable(),"RmL",new JTextField(),new JSpinner(),new JTextField(),jpb);
+        RemoveLowerListener rmlListener=new RemoveLowerListener(new JTextField(),new JSpinner(),new JTextField(),labCollection.getUselessData(),guiFrame.getTable(),jpb);
+        LabButton rmLButton = new LabButton("Remove lower", rmlListener);
         //  </"Remove lower" button setting>
 
         //  <"Import" button setting>
@@ -153,7 +159,6 @@ public class ConsoleApp {
         guiFrame.add(new JScrollPane(OutputPanel));
         guiFrame.add(jpb);
         //  </Adding elements to frame>
-
         guiFrame.setVisible(true);
     }
 
