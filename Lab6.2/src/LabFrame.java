@@ -14,7 +14,7 @@ import java.util.TreeSet;
  * Created by Денис on 24.04.2017.
  */
 public class LabFrame extends JFrame {
-    JPanel panel=new JPanel();
+
     LabTable table;
 
     public LabTable getTable() {

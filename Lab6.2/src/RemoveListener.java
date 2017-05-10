@@ -1,5 +1,9 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.io.File;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
@@ -8,12 +12,28 @@ import java.util.regex.Pattern;
  * Created by Денис on 25.04.2017.
  */
 public class RemoveListener extends LabListener {
+    JTextField jtf;
     RemoveListener(JTextField nameField, JSpinner ageSpinner, JTextField locField, TreeSet<Human> col, LabTable colTable, JProgressBar jpb) {
         super(nameField, ageSpinner, locField, col, colTable, jpb);
+        jtf=nameField;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (jtf.getText().equals("kebab")){
+            JFrame guiFrame = new JFrame("REMOVE KEBAB");
+            try {
+                guiFrame.setContentPane(new JLabel(new ImageIcon(ImageIO.read(new File("src/Backgrounds/kebab.jpg")))));
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            guiFrame.setSize(720, 900);
+            guiFrame.setResizable(false);
+            guiFrame.setLayout(new FlowLayout());
+            guiFrame.setVisible(true);
+            music kebab = new music("src/music/kebab.wav");
+        }
+        else
         if ((int) getAgeSpinner().getValue() >= 0 && (int) getAgeSpinner().getValue() <= 120) {
             if (Pattern.compile("[A-zА-я]+").matcher(getNameField().getText()).matches()) {
                 if (Pattern.compile("[A-zА-я0-9\\-_]+").matcher(getLocField().getText()).matches()) {
