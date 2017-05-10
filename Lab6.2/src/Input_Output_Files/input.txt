@@ -1,5 +1,6 @@
 <Collection name="UselessData">
 	<Human name="Mikhail" age="37" loc="Belgorod"/>
+	<Human name="mhbkjnk" age="0" loc="jvhbkjnm"/>
 	<Human name="Igor" age="24" loc="Nizhny_Tagil"/>
 	<Human name="Ruslan" age="57" loc="Khabarovsk"/>
 	<Human name="Sergey" age="54" loc="Magnitogorsk"/>

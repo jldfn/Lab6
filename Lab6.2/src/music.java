@@ -51,6 +51,7 @@ public class Music {
             nofile.printStackTrace();
         } catch (IOException io) {
             io.printStackTrace();
+        }catch (IllegalArgumentException e){System.out.print("Kebab removed");
         }
     }
 }
