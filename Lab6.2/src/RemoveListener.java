@@ -34,7 +34,7 @@ public class RemoveListener extends LabListener {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    music kebab = new music("src/music/kebab.wav");
+                    Music kebab = new Music("src/music/kebab.wav");
                 }
             }).start();
         }
