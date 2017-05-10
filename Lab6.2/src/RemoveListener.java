@@ -27,7 +27,7 @@ public class RemoveListener extends LabListener {
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
-            guiFrame.setSize(720, 900);
+            guiFrame.setSize(900, 900);
             guiFrame.setResizable(false);
             guiFrame.setLayout(new FlowLayout());
             guiFrame.setVisible(true);
