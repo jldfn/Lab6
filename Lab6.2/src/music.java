@@ -4,8 +4,8 @@
 import javax.sound.sampled.*;
 import java.io.*;
 
-public class music {
-    music(String filename) {
+public class Music {
+    Music(String filename) {
 
         int total, totalToRead, numBytesRead, numBytesToRead;
         byte[] buffer;
