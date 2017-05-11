@@ -45,7 +45,7 @@ public class Human implements Comparable {
 
     public int hashCode() {
         int result = getName().hashCode();
-        result = 31 * result + getLocation().hashCode();
+        result= 31 * result + getLocation().hashCode()*19+getAge()*53;
         return result;
     }
     public String toString(){

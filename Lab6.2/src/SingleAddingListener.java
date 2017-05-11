@@ -15,7 +15,7 @@ public class SingleAddingListener extends LabListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if ((int) getAgeSpinner().getValue() >= 0 && (int) getAgeSpinner().getValue() <= 120) {
-            if (Pattern.compile("[A-zА-я]+").matcher(getNameField().getText()).matches()) {
+            if (Pattern.compile("[A-zА-я']+").matcher(getNameField().getText()).matches()) {
                 if (Pattern.compile("[A-zА-я0-9\\-_]+").matcher(getLocField().getText()).matches()) {
                     Human Person = new Human(getNameField().getText(), (int) getAgeSpinner().getValue(), getLocField().getText());
                     getCollection().add(Person);

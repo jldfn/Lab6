@@ -2,6 +2,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 import java.util.TreeSet;
+import java.util.regex.Pattern;
 
 /**
  * Created by Денис on 25.04.2017.
@@ -51,20 +52,32 @@ public class LabTable extends AbstractTableModel implements TableModel {
     @Override
     public void setValueAt(Object aValue, int rowIndex, int columnIndex) {
         if(aValue!=null && aValue.toString().length()>0) {
-            Human[] arr = Humans.toArray(new Human[Humans.size()]);
-            Humans.remove(arr[(int) getValueAt(rowIndex, 0) - 1]);
-            switch (columnIndex) {
-                case 1:
-                    Humans.add(new Human((String) aValue, arr[(int) getValueAt(rowIndex, 0) - 1].getAge(), arr[(int) getValueAt(rowIndex, 0) - 1].getLocation()));
-                    break;
-                case 2:
-                    Humans.add(new Human(arr[(int) getValueAt(rowIndex, 0) - 1].getName(), (int) aValue, arr[(int) getValueAt(rowIndex, 0) - 1].getLocation()));
-                    break;
-                case 3:
-                    Humans.add(new Human(arr[(int) getValueAt(rowIndex, 0) - 1].getName(), arr[(int) getValueAt(rowIndex, 0) - 1].getAge(), (String) aValue));
-                    break;
-            }
-            fireTableDataChanged();
+                Human[] arr = Humans.toArray(new Human[Humans.size()]);
+                switch (columnIndex) {
+                    case 1:
+                        if (Pattern.compile("[A-zА-я']+").matcher(aValue.toString()).matches()) {
+                            Humans.remove(arr[(int) getValueAt(rowIndex, 0) - 1]);
+                            Humans.add(new Human((String) aValue, arr[(int) getValueAt(rowIndex, 0) - 1].getAge(), arr[(int) getValueAt(rowIndex, 0) - 1].getLocation()));
+                        }else{System.out.print("Поле \"Имя\" не может являться пустым.В имени могут содержаться только символы кириллицы и латинского алфавита");}
+                        break;
+                    case 2:
+                        if((int)aValue>=0 && (int) aValue<=120) {
+                            Humans.remove(arr[(int) getValueAt(rowIndex, 0) - 1]);
+                            Humans.add(new Human(arr[(int) getValueAt(rowIndex, 0) - 1].getName(), (int) aValue, arr[(int) getValueAt(rowIndex, 0) - 1].getLocation()));
+                        }
+                        else
+                        {
+                            System.out.print("Возраст может быть в пределах от 0 до 120");
+                        }
+                        break;
+                    case 3:
+                        if (Pattern.compile("[A-zА-я0-9\\-_]+").matcher(aValue.toString()).matches()) {
+                            Humans.remove(arr[(int) getValueAt(rowIndex, 0) - 1]);
+                            Humans.add(new Human(arr[(int) getValueAt(rowIndex, 0) - 1].getName(), arr[(int) getValueAt(rowIndex, 0) - 1].getAge(), (String) aValue));
+                        }else{System.out.print("Поле \"Имя\" не может являться пустым.В имени могут содержаться только символы кириллицы и латинского алфавита");}
+                        break;
+                }
+                fireTableDataChanged();
         }
     }
 
@@ -80,6 +93,7 @@ public class LabTable extends AbstractTableModel implements TableModel {
             //arr[i].setGender(a.getGender());
             i++;
         }
+        if(getHumans().size()!=0)
         switch(columnIndex){
             case 0:{return rowIndex+1;}
             case 1:{return arr[rowIndex].getName();}
@@ -87,7 +101,7 @@ public class LabTable extends AbstractTableModel implements TableModel {
             case 3:{return arr[rowIndex].getLocation();}
            // case 3:{return arr[rowIndex].getGender()? "Male":"Female";}
             default:{return null;}
-        }
+        }else return(null);
     }
 
     @Override
@@ -98,12 +112,18 @@ public class LabTable extends AbstractTableModel implements TableModel {
     @Override
     public Class<?> getColumnClass(int columnIndex) {
         Class returnValue;
-        if ((columnIndex >= 0) && (columnIndex < getColumnCount())) {
-
-            returnValue = getValueAt(0, columnIndex).getClass();
-        } else {
-            returnValue = Object.class;
+        switch (columnIndex){
+            case 0: returnValue=Integer.class; break;
+            case 1: returnValue=String.class; break;
+            case 2: returnValue=Integer.class; break;
+            case 3: returnValue=String.class; break;
+            default:returnValue=String.class; break;
         }
         return returnValue;
     }
+
+    public TreeSet<Human> getHumans() {
+        return Humans;
+    }
+
 }

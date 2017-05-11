@@ -52,7 +52,7 @@ public class ConsoleApp {
         //  </Background setting>
 
         //  <Frame Setting>
-        guiFrame.setSize(720, 900);
+        guiFrame.setSize(720, 830);
         guiFrame.setResizable(false);
         guiFrame.setLayout(new FlowLayout());
         guiFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -106,7 +106,7 @@ public class ConsoleApp {
 
         //  <ProgressBar setting>
         JProgressBar jpb = new JProgressBar();
-        jpb.setPreferredSize(new Dimension(600, 35));
+        jpb.setPreferredSize(new Dimension(690, 35));
         jpb.setIndeterminate(false);
         //  </ProgressBar setting>
 
@@ -155,7 +155,7 @@ public class ConsoleApp {
         guiFrame.add(saveButton);
         guiFrame.add(filterPanel);
         guiFrame.add(new JScrollPane(sortTable));
-        guiFrame.add(spinPanel);
+        //guiFrame.add(spinPanel);
         guiFrame.add(new JScrollPane(OutputPanel));
         guiFrame.add(jpb);
         //  </Adding elements to frame>
