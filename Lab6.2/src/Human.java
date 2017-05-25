@@ -1,8 +1,9 @@
+import java.io.*;
 
 /**
  * Created by Денис on 19.11.2016.
  */
-public class Human implements Comparable {
+public class Human implements Comparable, Serializable {
     private String name;
     private int age;
     private String location;
@@ -57,6 +58,44 @@ public class Human implements Comparable {
         for(int i=0;i<o.toString().length();i++) c1+=o.toString().charAt(i);
         for(int i=0;i<this.toString().length();i++) c2+=this.toString().charAt(i);
         return(c2-c1);
+    }
+    public byte[] serialize() {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutput out = null;
+        try {
+            out = new ObjectOutputStream(bos);
+            out.writeObject(this);
+            out.flush();
+            byte[] serializedHuman = bos.toByteArray();
+            bos.close();
+            return serializedHuman;
+        } catch (IOException ex) {
+            // ignore close exception
+        }finally {
+            try{
+                bos.close();}catch (IOException e){}
+        }
+        return null;
+    }
+
+    public Human deserialize(byte[] serializedHuman){
+        ByteArrayInputStream bis = new ByteArrayInputStream(serializedHuman);
+        ObjectInput in = null;
+        try {
+            in = new ObjectInputStream(bis);
+            Object o = in.readObject();
+            return (Human) o;
+        } catch(Exception e){}
+        finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch (IOException ex) {
+                // ignore close exception
+            }
+        }
+        return null;
     }
 }
 

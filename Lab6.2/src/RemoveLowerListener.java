@@ -20,11 +20,11 @@ public class RemoveLowerListener extends LabListener {
         if ((int) getAgeSpinner().getValue() >= 0 && (int) getAgeSpinner().getValue() <= 120) {
             if (Pattern.compile("[A-zА-я']+").matcher(getNameField().getText()).matches()) {
                 if (Pattern.compile("[A-zА-я0-9\\-_]+").matcher(getLocField().getText()).matches()) {
+                    Human consoleArgument = new Human(getNameField().getText(), (int) getAgeSpinner().getValue(), getLocField().getText());
                     ProgressBarThread jPBarThread = new ProgressBarThread(jpb1);
                     jPBarThread.start();
-                    Iterator iter = getCollection().iterator();
+                    /*Iterator iter = getCollection().iterator();
                     while (iter.hasNext()) {
-                        Human consoleArgument = new Human(getNameField().getText(), (int) getAgeSpinner().getValue(), getLocField().getText());
                         Human a = (Human) iter.next();
                         if (consoleArgument.compareTo(a) > 0) {
                             System.out.print(a.toString() + " был удалён из коллекции");
@@ -34,13 +34,14 @@ public class RemoveLowerListener extends LabListener {
                     }
                     getNameField().setText("");
                     getAgeSpinner().setValue(0);
-                    getLocField().setText("");
+                    getLocField().setText("");*/
                     try {
                         Thread.sleep(1);
                     } catch (InterruptedException e1) {
                         e1.printStackTrace();
                     }
                     jPBarThread.interrupt();
+                    makeCall("remove_lower",consoleArgument);
                 } else {
                     System.out.print("Поле \"Локация\" не может являться пустым. В локации могут содержаться лишь символы кириллицы, латинского алфавита, цифры, \"-\" и \"_\"");
                 }

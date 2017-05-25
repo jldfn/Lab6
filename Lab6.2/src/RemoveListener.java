@@ -37,8 +37,8 @@ public class RemoveListener extends LabListener {
         if ((int) getAgeSpinner().getValue() >= 0 && (int) getAgeSpinner().getValue() <= 120) {
             if (Pattern.compile("[A-zА-я']+").matcher(getNameField().getText()).matches()) {
                 if (Pattern.compile("[A-zА-я0-9\\-_]+").matcher(getLocField().getText()).matches()) {
-                    Iterator iter = getCollection().iterator();
                     Human consoleArgument = new Human(getNameField().getText(), (int) getAgeSpinner().getValue(), getLocField().getText());
+                    /*Iterator iter = getCollection().iterator();
                     boolean removed = false;
                     while (iter.hasNext()) {
                         Human currentElement = (Human) iter.next();
@@ -55,7 +55,9 @@ public class RemoveListener extends LabListener {
                     }
                     getNameField().setText("");
                     getAgeSpinner().setValue(0);
-                    getLocField().setText("");
+                    getLocField().setText("");e
+                    */
+                    makeCall("remove",consoleArgument);
                 } else {
                     System.out.print("Поле \"Локация\" не может являться пустым. В локации могут содержаться лишь символы кириллицы, латинского алфавита, цифры, \"-\" и \"_\"");
                 }

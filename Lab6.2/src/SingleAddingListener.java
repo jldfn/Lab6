@@ -18,12 +18,14 @@ public class SingleAddingListener extends LabListener {
             if (Pattern.compile("[A-zА-я']+").matcher(getNameField().getText()).matches()) {
                 if (Pattern.compile("[A-zА-я0-9\\-_]+").matcher(getLocField().getText()).matches()) {
                     Human Person = new Human(getNameField().getText(), (int) getAgeSpinner().getValue(), getLocField().getText());
+                    /*
                     getCollection().add(Person);
                     getNameField().setText("");
                     getAgeSpinner().setValue(0);
                     getLocField().setText("");
                     getTable().fireTableDataChanged();
-                    System.out.print("Объект " + Person.toString() + " был успешно занесен в коллекцию");
+                    System.out.print("Объект " + Person.toString() + " был успешно занесен в коллекцию");*/
+                    makeCall("add",Person);
                 } else {
                     System.out.print("Поле \"Локация\" не может являться пустым. В локации могут содержаться лишь символы кириллицы, латинского алфавита, цифры, \"-\" и \"_\"");
                 }

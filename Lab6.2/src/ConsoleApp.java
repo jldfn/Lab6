@@ -16,8 +16,9 @@ import java.util.regex.Pattern;
 
 public class ConsoleApp {
     final static String defaultPath = "src/Input_Output_Files/input.txt";
-
-
+    static final String HOSTNAME = "52.174.16.235";
+    static final String USERNAME = "kjkszpj361";
+    static final String PASSWORD = "B9zbYEl*dj}6";
     public static void main(String[] args) {
         LabCollection ExpCol = ImportFrom(defaultPath);
         SwingUtilities.invokeLater(
